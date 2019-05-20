@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <title>KOREAN AIR Email </title>
+
+    <style>
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        a {
+            text-decoration: none;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        *[x-apple-data-detectors],
+        /* iOS */
+        .unstyle-auto-detected-links *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        .im {
+            color: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        img.g-img+div {
+            display: none !important;
+        }
+    </style>
+
+    <style>
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+
+        .button-td-primary:hover,
+        .button-a-primary:hover {
+            background: #03539C !important;
+            border-color: #03539C !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 600px) {
+
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
+            }
+
+            /* What it does: Adjust typography on small screens to improve readability */
+            .email-container p {
+                font-size: 17px !important;
+            }
+
+            .list-item {
+                display: block !important;
+                width: 100% !important;
+            }
+
+        }
+    </style>
+    <!-- Progressive Enhancements : END -->
+
+    <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+</head>
+<!--
+	The email background color (#222222) is defined in three places:
+	1. body tag: for most email clients
+	2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+	3. mso conditional: For Windows 10 Mail
+-->
+
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;">
+    <center style="width: 100%; background-color: #ffffff;">
+        <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
+    <tr>
+    <td>
+    <![endif]-->
+
+
+
+        <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. -->
+        <!-- Preview Text Spacing Hack : BEGIN -->
+        <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+        </div>
+        <!-- Preview Text Spacing Hack : END -->
+
+        <!-- Header : BEGIN-->
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 auto;"
+            class="email-container">
+            <!-- Email Header : BEGIN -->
+            <tr>
+                <td height="20">
+                    &nbsp;
+                </td>
+            </tr>
+            <!-- Email Header : END -->
+
+            <!-- Hero Image, Flush : BEGIN -->
+            <tr>
+                <td style="background-color: #ffffff; ">
+                    <!--[if mso]>
+	                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" align="center" style="margin:0 auto;">
+	                    <tr>
+	                    <td>
+	                    <![endif]-->
+                    <table align="center" cellpadding="0" cellspacing="0" border="0" width="600" height="60" style="margin:0 auto; border-bottom:1px solid #cccccc;"
+                        class="email-container">
+                        <tr>
+                            <td width="50%">
+                                <img src="https://i.imgur.com/U3kah98.png" alt="KOREAN AIR" width="200" style='display:block;'
+                                    class="respon-img" />
+                            </td>
+
+                            <td width="50%">
+                                <h1 height="25px" style="font-family: sans-serif; font-size: 22px; color: #333333; font-weight: normal; text-align:right; padding:0 20px 0 0 ;">
+                                    Sales Report
+                                </h1>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if mso]>
+                            </td>
+                            </tr>
+                            </table>
+                            <![endif]-->
+
+
+                </td>
+            </tr>
+        </table>
+        <!-- Header : END-->
+
+
+        <!-- Email Body : BEGIN -->
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin: 0 auto;"
+            class="email-container">
+
+
+            <!-- 1 Column Text + Button : BEGIN -->
+            <tr>
+                <td style="background-color: #ffffff;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <!--[S] Section 01 -->
+                        <tr>
+                            <td style="padding: 20px 20px 0px 20px; font-family: sans-serif, Dotum; font-size: 15px; line-height: 20px; color: #555555;">
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="background: #f3f2f2;padding: 5px 8px;border-radius: 0.25rem;font-family: sans-serif, Dotum; line-height: 20px; color: #555555;">
+                                            <h3 style="margin:0;">Section 01</h3>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- 두칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td class="list-item" width="300" style="padding-left:15px;padding-top:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif,Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Branch
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        SELSF
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="list-item" width="300" style="padding-top:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Sales Rep
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        안동수
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr width="100%">
+                                        <td class="list-item" width="300" style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Date
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=" padding:0 0 15px 0;font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        2018-08-28
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="list-item" width="300">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:uppercase;">
+                                                        AGT
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        HYUNDAIGLOVIS CO. LTD.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Title
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        현대글로비스 방문 보고 (구주행 Auto Parts 수요 등장 점검)
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Comment
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        VIE 행 수요동향은 지속 주의깊게 모니터링하여 주시기 바라며, 상기 관련 정보는 1팀 2그룹장, 노선담당자와
+                                                        정보공유하여 주시기 바랍니다. <br>
+                                                        Comment by SELSFSFN[08.29 08.02]
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Action Detail
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 10px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        팀장님! 지시하신 대로 지속 모니터링 하면서 Follow-up 하겠습니다Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis aliquam velit maiores, vitae eos cumque! Atque animi sint aperiam non sunt, quaerat recusandae libero consectetur laboriosam iste, repellat nisi
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--[E] Section 01 -->
+                        <!--[S] Section 02 -->
+                        <tr>
+                            <td style="padding: 20px 20px 0px 20px; font-family: sans-serif, Dotum; font-size: 15px; line-height: 20px; color: #555555;">
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="background: #f3f2f2;padding: 5px 8px;border-radius: 0.25rem;font-family: sans-serif, Dotum; line-height: 20px; color: #555555;">
+                                            <h3 style="margin:0;">Section 02</h3>
+                                        </td>
+                                    </tr> 
+                                </table>
+
+                                <!-- 두칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td class="list-item" width="300" style="padding-left:15px;padding-top:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Branch
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        SELSF
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="list-item" width="300" style="padding-top:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Sales Rep
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        안동수
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr width="100%">
+                                        <td class="list-item" width="300" style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Date
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=" padding:0 0 15px 0;font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        2018-08-28
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="list-item" width="300">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:uppercase;">
+                                                        AGT
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        HYUNDAIGLOVIS CO. LTD.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Title
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        현대글로비스 방문 보고 (구주행 Auto Parts 수요 등장 점검)
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:15px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Comment
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 15px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        VIE 행 수요동향은 지속 주의깊게 모니터링하여 주시기 바라며, 상기 관련 정보는 1팀 2그룹장, 노선담당자와
+                                                        정보공유하여 주시기 바랍니다. <br>
+                                                        Comment by SELSFSFN[08.29 08.02]
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- 한칸일때-->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    width="100%">
+                                    <tr width="100%">
+                                        <td style="padding-left:10px;">
+                                            <table align="center" role="presentation" cellspacing="0" cellpadding="0"
+                                                border="0" width="100%">
+                                                <tr width="100%">
+                                                    <td class="list-item" style="font-family: sans-serif, Dotum; font-size: 15px; line-height: 23px; color: #555555; font-weight:bold; text-transform:capitalize;">
+                                                        Action Detail
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-item" style="padding:0 0 10px 0; font-family: sans-serif, Dotum; font-size: 14px; line-height: 23px; color: #555555; font-weight:normal; ">
+                                                        팀장님! 지시하신 대로 지속 모니터링 하면서 Follow-up 하겠습니다.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--[E] Section 02 -->
+                        <tr height="50px">
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr height="60px">
+                            <td style="border-top:1px solid #ecebea;">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr style="text-align:center; color:#706e6b; font-size:15px;">
+                            <td>
+                                자세한 정보는 아래 링크를 클릭하세요.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="5px">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0 20px 20px;">
+                                <!-- Button : BEGIN -->
+                                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                    style="margin: auto;">
+
+                                    <tr>
+                                        <td class="button-td button-td-primary" style="border-radius: 4px; background: #00549e;padding: 13px 17px; ">
+                                            <!--#94def2;-->
+                                            <a class="button-a button-a-primary" href="https://google.com/" style="background: #00549e;  font-family: sans-serif, Dotum; font-size: 15px; line-height: 15px; text-decoration: none; color: #ffffff; display: block; border-radius: 4px;">
+                                                Access to KAL
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- Button : END -->
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+            <!-- 1 Column Text + Button : END -->
+
+
+            <!-- Clear Spacer : BEGIN -->
+            <tr>
+                <td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">
+                    &nbsp;
+                </td>
+            </tr>
+            <!-- Clear Spacer : END -->
+
+
+        </table>
+        <!-- Email Body : END -->
+
+
+
+
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin:0 auto; background:#87B0D0;"
+            class="email-container">
+
+
+            <!-- Hero Image, Flush : BEGIN -->
+            <tr>
+                <td align="center">
+
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin:0 auto;"
+                        class="email-container">
+                        <tr width="100%">
+
+                            <td width="100%">
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="kal_logo" align="center" width="100%" style=" padding: 20px 0 0 0; text-align: center; font-family: sans-serif, Dotum; font-size: 15px; line-height: 20px; color: #ffffff;">
+                                            <img src="https://imgur.com/ItT9iNL.png" alt="KOREAN AIR" width="138" class="respon-img"
+                                                style="padding: 0 0 3px 0;" />
+                                            <img src="https://imgur.com/uI7PClv.png" alt="SALEFORCE" width="62" class="respon-img" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" border="0" width="600" height="40" style="margin:0 auto;"
+                        class="email-container">
+                        <tr>
+                            <td width="100%" class="copyright" style="padding:8px 0 15px 20px; text-align:center;">
+                                <span style="font-size:12px; color:#ffffff">
+                                    Copyright© Korean Air . All right reserved
+                                </span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+    </center>
+</body>
+
+</html>
