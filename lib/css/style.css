@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* common */
+*{margin:0;padding:0;outline:0;font-family:'Noto Sans KR','Spoqa Han Sans','Sans-serif';box-sizing:border-box;}
+html,body{position:relative;width:100%;height:100%;}
+body{line-height:1;font-size:100%;color:#343132;}
+html,body,div,p,span,ul,li,header,footer,nav,section,h1,h2,h3,h4,h5,h6{vertical-align:baseline;background:transparent;}
+header,nav,section,footer{display:block;}
+ul{list-style:none;}
+a{margin:0;padding:0;background:transparent;text-decoration:none;color:inherit;display:inline-block;vertical-align:top;}
+a:active,a:visited{color:inherit;}
+button{margin:0;padding:0;border:none;font:inherit;color:inherit;background:none;cursor:pointer;}
+.hide{position:absolute!important;margin:-1px!important;border:0!important;padding:0!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;text-transform:none!important;white-space:nowrap!important;}
+
+
