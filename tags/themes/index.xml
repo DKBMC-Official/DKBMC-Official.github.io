@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>themes on 기술블로그 TEST 중..</title>
-    <link>https://BongHoonKo.github.io/tags/themes/</link>
+    <link>https://DKBMC-Official.github.io/tags/themes/</link>
     <description>Recent content in themes on 기술블로그 TEST 중..</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://BongHoonKo.github.io/tags/themes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://DKBMC-Official.github.io/tags/themes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Real Title</title>
-      <link>https://BongHoonKo.github.io/post/test1/</link>
+      <link>https://DKBMC-Official.github.io/post/test1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://BongHoonKo.github.io/post/test1/</guid>
+      <guid>https://DKBMC-Official.github.io/post/test1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>테스트 코드</title>
-      <link>https://BongHoonKo.github.io/post/test/</link>
+      <link>https://DKBMC-Official.github.io/post/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://BongHoonKo.github.io/post/test/</guid>
+      <guid>https://DKBMC-Official.github.io/post/test/</guid>
       <description>1. Coding html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;ldquo;en&amp;rdquo;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;ldquo;UTF-8&amp;rdquo;&amp;gt; &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;ldquo;en&amp;rdquo;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;ldquo;UTF-8&amp;rdquo;&amp;gt; &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur?</description>
     </item>
     
