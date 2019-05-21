@@ -3,16 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://BongHoonKo.github.io/post/test/</loc>
-  </url>
-  
-  <url>
-    <loc>https://BongHoonKo.github.io/post/test1/</loc>
-  </url>
-  
-  <url>
     <loc>https://BongHoonKo.github.io/categories/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/dk-bmc/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/post/mypost/</loc>
   </url>
   
   <url>
@@ -21,13 +22,17 @@
   </url>
   
   <url>
-    <loc>https://BongHoonKo.github.io/</loc>
+    <loc>https://BongHoonKo.github.io/categories/hugo-%EC%84%B8%ED%8C%85/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://BongHoonKo.github.io/post/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/post/test1/</loc>
   </url>
   
   <url>
@@ -63,6 +68,15 @@
   <url>
     <loc>https://BongHoonKo.github.io/tags/themes/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/post/test/</loc>
   </url>
   
 </urlset>

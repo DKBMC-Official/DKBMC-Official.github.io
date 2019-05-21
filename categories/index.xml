@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
+    <title>Categories on 기술블로그 TEST 중..</title>
     <link>https://BongHoonKo.github.io/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <description>Recent content in Categories on 기술블로그 TEST 중..</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -16,6 +16,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://BongHoonKo.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo 세팅</title>
+      <link>https://BongHoonKo.github.io/categories/hugo-%EC%84%B8%ED%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://BongHoonKo.github.io/categories/hugo-%EC%84%B8%ED%8C%85/</guid>
       <description></description>
     </item>
     
