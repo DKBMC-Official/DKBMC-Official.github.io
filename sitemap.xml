@@ -3,17 +3,65 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dkbmc-official.github.io/categories/</loc>
+    <loc>https://BongHoonKo.github.io/post/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/post/test1/</loc>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dkbmc-official.github.io/</loc>
+    <loc>https://BongHoonKo.github.io/categories/development/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dkbmc-official.github.io/tags/</loc>
+    <loc>https://BongHoonKo.github.io/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/development/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/go/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/categories/golang/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/golang/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/templates/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://BongHoonKo.github.io/tags/themes/</loc>
     <priority>0</priority>
   </url>
   
