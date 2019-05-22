@@ -17,6 +17,10 @@
   </url>
   
   <url>
+    <loc>https://DKBMC-Official.github.io/post/dkbmc/</loc>
+  </url>
+  
+  <url>
     <loc>https://DKBMC-Official.github.io/categories/development/</loc>
     <priority>0</priority>
   </url>
@@ -43,6 +47,10 @@
   <url>
     <loc>https://DKBMC-Official.github.io/tags/development/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/hugofy/</loc>
   </url>
   
   <url>
