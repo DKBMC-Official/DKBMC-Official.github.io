@@ -26,6 +26,11 @@
   </url>
   
   <url>
+    <loc>https://DKBMC-Official.github.io/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://DKBMC-Official.github.io/categories/hugo-%EC%84%B8%ED%8C%85/</loc>
     <priority>0</priority>
   </url>
@@ -74,12 +79,11 @@
   </url>
   
   <url>
-    <loc>https://DKBMC-Official.github.io/tags/themes/</loc>
-    <priority>0</priority>
+    <loc>https://DKBMC-Official.github.io/post/test2/</loc>
   </url>
   
   <url>
-    <loc>https://DKBMC-Official.github.io/</loc>
+    <loc>https://DKBMC-Official.github.io/tags/themes/</loc>
     <priority>0</priority>
   </url>
   
