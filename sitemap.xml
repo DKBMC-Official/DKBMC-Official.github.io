@@ -78,6 +78,10 @@
   </url>
   
   <url>
+    <loc>https://DKBMC-Official.github.io/post/new/</loc>
+  </url>
+  
+  <url>
     <loc>https://DKBMC-Official.github.io/tags/templates/</loc>
     <priority>0</priority>
   </url>
