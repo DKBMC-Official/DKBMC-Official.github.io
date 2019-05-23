@@ -30,7 +30,12 @@
   </url>
   
   <url>
-    <loc>https://DKBMC-Official.github.io/categories/hugo-%EC%84%B8%ED%8C%85/</loc>
+    <loc>https://DKBMC-Official.github.io/categories/hugo/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/categories/hugo-setting/</loc>
     <priority>0</priority>
   </url>
   
