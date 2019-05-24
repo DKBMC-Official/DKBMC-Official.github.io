@@ -204,55 +204,25 @@ SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes ('AAA;BBB','CCC')
 <tr>
 <td>LIKE</td>
 <td align="left">Like</td>
-<td align="left">SELECT AccountId, FirstName, lastname</td>
-</tr>
-
-<tr>
-<td></td>
-<td align="left"></td>
-<td align="left">FROM Contact</td>
-</tr>
-
-<tr>
-<td></td>
-<td align="left"></td>
-<td align="left">WHERE lastname LIKE&rsquo;appl%&rsquo;</td>
+<td align="left">SELECT AccountId, FirstName, lastname <br/>FROM Contact <br/> WHERE lastname LIKE&rsquo;appl%&rsquo;</td>
 </tr>
 
 <tr>
 <td>IN</td>
 <td align="left">IN</td>
-<td align="left">SELECT Name FROM Account</td>
-</tr>
-
-<tr>
-<td></td>
-<td align="left"></td>
-<td align="left">WHERE BillingState IN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
+<td align="left">SELECT Name FROM Account <br/> WHERE BillingState IN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
 </tr>
 
 <tr>
 <td>NOT IN</td>
 <td align="left">NOT IN</td>
-<td align="left">SELECT Name FROM Account</td>
+<td align="left">SELECT Name FROM Account<br/>WHERE BillingState NOTIN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
 </tr>
 
 <tr>
-<td></td>
-<td align="left"></td>
-<td align="left">WHERE BillingState NOTIN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
-</tr>
-
-<tr>
-<td>INCLUDES</td>
+<td>INCLUDES <br/> EXCLUDES</td>
 <td align="left"></td>
 <td align="left">Applies only to multi-select picklists.</td>
-</tr>
-
-<tr>
-<td>EXCLUDES</td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 </tbody>
 </table>
