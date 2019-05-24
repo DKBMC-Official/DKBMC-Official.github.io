@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="DK BMC">
+    <meta name="author" content="[차용진]">
     <meta name="keywords" content="">
 
     <meta property="og:title" content="DKBMC 기술 블로그"/>
@@ -18,13 +18,10 @@
     <meta property="og:image:height" content="100px"/>
 
 
-    <title>go -- Technology</title>
+    <title>SOQL 02 -- Technology</title>
 
     <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
 
-    
-    <link href="https://DKBMC-Official.github.io/tags/go/index.xml" rel="alternate" type="application/rss+xml" title="Technology" />
-    <link href="https://DKBMC-Official.github.io/tags/go/index.xml" rel="feed" type="application/rss+xml" title="Technology" />
     
 
     
@@ -80,110 +77,288 @@
         
     </nav>
 
+
     
-    <header class="intro-header post-header" style="background-image: url('https://DKBMC-Official.github.io//img/home-bg.jpg');height:35rem;border-bottom: none;">
     
-     <div class="container">
-        <div class="row" >
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');height:35rem;border-bottom: none;">
+      
+      <div class="container">
+        <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>go</h1>
-               <hr class="small" style="border-color:#0085a1;">
+               <h1>SOQL 02</h1>
                <h2 class="subheading" style="font-weight:200;font-size:1.85rem;"></h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
+               <span style="color:#333;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>차용진</span>
+                </a>
+               
              </div>
            </div>
         </div>
       </div>
     </header>
-
     
-    <div class="container">
-      <div class="row" style="width:100%">
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 p-horizontal col-md-offset-1">
-          
-                             <div class="post-preview">
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
                   
-                  <span class="post-preview_date"><b>Wed, May 22, 2019</b></span>
-                 <a href="https://DKBMC-Official.github.io/post/test2/">
-                    
-                      <h2 class="post-title">test</h2>
-                    </a>
-                    
-                    <p class="post-meta">
-                        Category : <sapn class="tag_wrap">
-                            <a href="/categories/development">Development</a><a href="/categories/golang">Golang</a><a href="/categories/hugo">Hugo</a>
 
-                        </span>
-                  </p>
-               </div>
-               <hr>
+<!-- 게시글 내용 -->
 
+<h3 id="복수-선택-picklist-쿼리">복수 선택 Picklist 쿼리</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>=</td>
+<td align="left">Equals the specified string.</td>
+</tr>
+
+<tr>
+<td>!=</td>
+<td align="left">Does not equal the specified string.</td>
+</tr>
+
+<tr>
+<td>includes</td>
+<td align="left">Includes (contains) the specified string.</td>
+</tr>
+
+<tr>
+<td>excludes</td>
+<td align="left">Excludes (does not contain) the specified string.</td>
+</tr>
+
+<tr>
+<td>;</td>
+<td align="left">Specifies AND for two or more strings.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT Id, MSP1__c FROM CustObj__c WHERE MSP1__c = 'AAA;BBB'
+SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes ('AAA;BBB','CCC')
+</code></pre>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h3 id="비교-연산자">비교 연산자</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>=</td>
+<td align="left">Equals</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>!=</td>
+<td align="left">Not equals</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>&lt;</td>
+<td align="left">Less than</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>&lt;=</td>
+<td align="left">Less or equal</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>&gt;</td>
+<td align="left">Greater than</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>&gt;=</td>
+<td align="left">Greater or equal</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td>LIKE</td>
+<td align="left">Like</td>
+<td align="left">SELECT AccountId, FirstName, lastname</td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left">FROM Contact</td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left">WHERE lastname LIKE&rsquo;appl%&rsquo;</td>
+</tr>
+
+<tr>
+<td>IN</td>
+<td align="left">IN</td>
+<td align="left">SELECT Name FROM Account</td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left">WHERE BillingState IN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
+</tr>
+
+<tr>
+<td>NOT IN</td>
+<td align="left">NOT IN</td>
+<td align="left">SELECT Name FROM Account</td>
+</tr>
+
+<tr>
+<td></td>
+<td align="left"></td>
+<td align="left">WHERE BillingState NOTIN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
+</tr>
+
+<tr>
+<td>INCLUDES</td>
+<td align="left"></td>
+<td align="left">Applies only to multi-select picklists.</td>
+</tr>
+
+<tr>
+<td>EXCLUDES</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h3 id="논리-연산자">논리 연산자</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th align="left">Syntax</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>AND</td>
+<td align="left">X AND Y</td>
+<td align="left">true if both X and Y are true.</td>
+</tr>
+
+<tr>
+<td>OR</td>
+<td align="left">X OR Y</td>
+<td align="left">true if either X or Y is true.</td>
+</tr>
+
+<tr>
+<td>NOT</td>
+<td align="left">NOT X</td>
+<td align="left">true if X is false.</td>
+</tr>
+</tbody>
+</table>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
           
-          <div class="pagination_wrap">
 
-              
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/tags/go/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="/tags/go/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/go/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/go/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/tags/go/page/3/">3</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/tags/go/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
+<div class="tag_wrap">
+<a href="/categories/development">Development</a>
 
-          </div>
-          
+</div>
+
+
         </div>
-      </div>
-    </div>
+          </span>
+            
+        </div>
 
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
     <hr>
     
     <footer>

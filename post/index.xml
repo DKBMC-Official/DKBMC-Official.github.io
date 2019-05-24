@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©DKBMC. All rights reserved. Powered by GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 24 May 2019 10:50:31 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 14:25:50 +0900</lastBuildDate>
     
 	<atom:link href="https://DKBMC-Official.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SOQL 02</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql02/</link>
+      <pubDate>Fri, 24 May 2019 14:25:50 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql02/</guid>
+      <description>복수 선택 Picklist 쿼리    Operator Description     = Equals the specified string.   != Does not equal the specified string.   includes Includes (contains) the specified string.   excludes Excludes (does not contain) the specified string.   ; Specifies AND for two or more strings.    SELECT Id, MSP1__c FROM CustObj__c WHERE MSP1__c = &#39;AAA;BBB&#39; SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes (&#39;AAA;BBB&#39;,&#39;CCC&#39;)  &amp;nbsp; 비교 연산자    Operator Name Description     = Equals         !</description>
+    </item>
+    
+    <item>
+      <title>SOQL 01</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql01/</link>
+      <pubDate>Fri, 24 May 2019 14:17:04 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql01/</guid>
+      <description> SOQL SELECT 구문 SELECT fieldList [subquery][...] [TYPEOF typeOfField whenExpression[...] elseExpression END][...] FROM objectType[,...] [USINGSCOPE filterScope] [WHERE conditionExpression] [WITH [DATA CATEGORY] filteringExpression] [GROUPBY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)} [HAVING havingConditionExpression] ] [ORDERBY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ] [LIMIT numberOfRowsToReturn] [OFFSET numberOfRowsToSkip] [FOR {VIEW | REFERENCE}[,...] ] [ UPDATE {TRACKING|VIEWSTAT}[,...] ]  &amp;nbsp; SOQL 쿼리에서 null 사용 SELECT AccountId FROM Event WHERE ActivityDate != null SELECT Id FROM Case WHERE Contact.LastName = null  &amp;nbsp; Boolean(참/거짓) 필드 필터링 WHERE BooleanField = TRUE WHERE BooleanField = FALSE  </description>
+    </item>
     
     <item>
       <title>DK BMC 기술블로그</title>

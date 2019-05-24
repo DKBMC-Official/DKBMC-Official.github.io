@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="DK BMC">
+    <meta name="author" content="[차용진]">
     <meta name="keywords" content="">
 
     <meta property="og:title" content="DKBMC 기술 블로그"/>
@@ -18,13 +18,10 @@
     <meta property="og:image:height" content="100px"/>
 
 
-    <title>go -- Technology</title>
+    <title>SOQL 01 -- Technology</title>
 
     <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
 
-    
-    <link href="https://DKBMC-Official.github.io/tags/go/index.xml" rel="alternate" type="application/rss+xml" title="Technology" />
-    <link href="https://DKBMC-Official.github.io/tags/go/index.xml" rel="feed" type="application/rss+xml" title="Technology" />
     
 
     
@@ -80,110 +77,108 @@
         
     </nav>
 
+
     
-    <header class="intro-header post-header" style="background-image: url('https://DKBMC-Official.github.io//img/home-bg.jpg');height:35rem;border-bottom: none;">
     
-     <div class="container">
-        <div class="row" >
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');height:35rem;border-bottom: none;">
+      
+      <div class="container">
+        <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>go</h1>
-               <hr class="small" style="border-color:#0085a1;">
+               <h1>SOQL 01</h1>
                <h2 class="subheading" style="font-weight:200;font-size:1.85rem;"></h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
+               <span style="color:#333;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>차용진</span>
+                </a>
+               
              </div>
            </div>
         </div>
       </div>
     </header>
-
     
-    <div class="container">
-      <div class="row" style="width:100%">
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 p-horizontal col-md-offset-1">
-          
-                             <div class="post-preview">
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
                   
-                  <span class="post-preview_date"><b>Wed, May 22, 2019</b></span>
-                 <a href="https://DKBMC-Official.github.io/post/test2/">
-                    
-                      <h2 class="post-title">test</h2>
-                    </a>
-                    
-                    <p class="post-meta">
-                        Category : <sapn class="tag_wrap">
-                            <a href="/categories/development">Development</a><a href="/categories/golang">Golang</a><a href="/categories/hugo">Hugo</a>
 
-                        </span>
-                  </p>
-               </div>
-               <hr>
+<!-- 게시글 내용 -->
 
+<h3 id="soql-select-구문">SOQL SELECT 구문</h3>
+
+<pre><code class="language-sql">SELECT fieldList [subquery][...]
+[TYPEOF typeOfField whenExpression[...] elseExpression END][...]
+FROM objectType[,...]
+    [USINGSCOPE filterScope]
+[WHERE conditionExpression]
+[WITH [DATA CATEGORY] filteringExpression]
+[GROUPBY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)}
+    [HAVING havingConditionExpression] ]
+[ORDERBY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
+[LIMIT numberOfRowsToReturn]
+[OFFSET numberOfRowsToSkip]
+[FOR {VIEW  | REFERENCE}[,...] ]
+      [ UPDATE {TRACKING|VIEWSTAT}[,...] ]
+</code></pre>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h3 id="soql-쿼리에서-null-사용">SOQL 쿼리에서 null 사용</h3>
+
+<pre><code class="language-sql">SELECT AccountId
+FROM Event
+WHERE ActivityDate != null
+
+SELECT Id
+FROM Case
+WHERE Contact.LastName = null
+</code></pre>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h3 id="boolean-참-거짓-필드-필터링">Boolean(참/거짓) 필드 필터링</h3>
+
+<pre><code class="language-sql">WHERE BooleanField = TRUE
+WHERE BooleanField = FALSE 
+</code></pre>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
           
-          <div class="pagination_wrap">
 
-              
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/tags/go/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="/tags/go/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/go/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/go/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/tags/go/page/3/">3</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/tags/go/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
+<div class="tag_wrap">
+<a href="/categories/development">Development</a>
 
-          </div>
-          
+</div>
+
+
         </div>
-      </div>
-    </div>
+          </span>
+            
+        </div>
 
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
     <hr>
     
     <footer>

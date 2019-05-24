@@ -348,6 +348,22 @@ img{width:100%;}
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.dkhome-link {
+    position: relative;
+    display: inline-block;
+    width: 2.25em;
+    height: 2.25em;
+    line-height: 2em;
+    vertical-align: middle;
+    background-color: #404040;
+    border-radius: 50%;
+    margin-right: 7px;
+    background-position: 7px center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
 @media all and (max-width: 360px) {
     .intro-header {
         height: 15rem;
@@ -389,4 +405,31 @@ img{width:100%;}
         width: 120px !important;
         margin-top: 3.5px;
     }
+}
+
+/* TABLE */
+table {
+    background: #fff;
+    margin: 20px 0 30px 0;
+    border-collapse: collapse;
+    border: 1px solid #f9f9f9;
+}
+th {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 1px solid #f9f9f9;
+    border-bottom: 1px solid #404040;
+}
+tr {
+    background: #fff;
+}
+table tbody tr td, table tbody tr td {
+    min-width: 40px;
+    padding: 10px 20px;
+    font-size: 0.85em;
+    border: 1px solid #f9f9f9;
+}
+
+table tbody tr:nth-child(even), table tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
 }
