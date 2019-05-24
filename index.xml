@@ -13,16 +13,16 @@
     
     
     <item>
-      <title>SOQL 02</title>
+      <title>SOQL 기본문법(02)</title>
       <link>https://DKBMC-Official.github.io/post/salesforce/soql02/</link>
       <pubDate>Fri, 24 May 2019 14:25:50 +0900</pubDate>
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql02/</guid>
-      <description>복수 선택 Picklist 쿼리    Operator Description     = Equals the specified string.   != Does not equal the specified string.   includes Includes (contains) the specified string.   excludes Excludes (does not contain) the specified string.   ; Specifies AND for two or more strings.    SELECT Id, MSP1__c FROM CustObj__c WHERE MSP1__c = &#39;AAA;BBB&#39; SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes (&#39;AAA;BBB&#39;,&#39;CCC&#39;)  &amp;nbsp; 비교 연산자    Operator Name Description     = Equals         !</description>
+      <description>복수 선택 Picklist 쿼리    Operator Description     = Equals the specified string.   != Does not equal the specified string.   includes Includes (contains) the specified string.   excludes Excludes (does not contain) the specified string.   ; Specifies AND for two or more strings.    SELECT Id, MSP1__c FROM CustObj__c WHERE MSP1__c = &#39;AAA;BBB&#39; SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes (&#39;AAA;BBB&#39;,&#39;CCC&#39;)  &amp;nbsp; 비교 연산자    Operator Name Description     = Equals    !</description>
     </item>
     
     <item>
-      <title>SOQL 01</title>
+      <title>SOQL 기본문법(01)</title>
       <link>https://DKBMC-Official.github.io/post/salesforce/soql01/</link>
       <pubDate>Fri, 24 May 2019 14:17:04 +0900</pubDate>
       
