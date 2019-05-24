@@ -75,6 +75,7 @@ img{width:100%;}
     width: 20%;
     display:none;
 }
+
 .category .category-title {
     font-weight: normal;
     padding: 1rem;
@@ -90,15 +91,7 @@ img{width:100%;}
 .intro-header + .container .row{
     width:100%;
 }
-.category p{
-    margin:.5rem 0;
-}
-.category ul + ul{
-    margin-top:4rem;
-}
-.category ul > li {
-    line-height: 4rem;
-}
+
 /*post preview*/
 .post-preview_date{
     font-size: 1.75rem;
@@ -201,6 +194,23 @@ img{width:100%;}
 .category{
     display:block;
 } 
+.category .category-title {
+    font-weight: 600;
+    padding: 1rem;
+    color:#0085a1; 
+}
+.category .category-list {
+    padding-left: 2rem;
+}
+.category p{
+    margin:.5rem 0;
+}
+.category ul + ul{
+    margin-top:4rem;
+}
+.category ul > li {
+    line-height: 4rem;
+}
 /*main banner*/
 .intro-header .container .row{
     height: 100%;
