@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GROUP BY">
+    <meta name="author" content="[Yong-Jin]">
+    <meta name="keywords" content="">
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/ico-dktech.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/ico-dktech.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');height:35rem;border-bottom: none;">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>SOQL 기본문법(05)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;">GROUP BY</h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Mon, May 27, 2019</b></span>
+               <span style="color:#333;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>Yong-Jin</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="group-by">GROUP BY</h3>
+
+<pre><code class="language-sql">  SELECT LeadSource, COUNT(Name)
+    FROM Lead
+GROUP BY LeadSource
+
+  SELECT LeadSource
+    FROM Lead
+GROUP BY LeadSource
+</code></pre>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h5 id="group-by-사용시-고려-사항">GROUP BY 사용시 고려 사항</h5>
+
+<blockquote>
+<ol>
+<li>일부 오브젝트 필드에는 그룹화를 지원하지 않는 필드 유형이 있습니다.</li>
+<li>쿼리가 LIMIT 절과 집계 된 함수를 사용하는 경우 GROUP BY 절을 사용해야합니다.</li>
+<li>GROUP을 사용하는 쿼리에서 __r 구문을 사용하는 자식 관계 식을 사용할 수 없습니다.</li>
+</ol>
+</blockquote>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h5 id="group-by와-함께-별칭-사용하기">GROUP BY와 함께 별칭 사용하기</h5>
+
+<blockquote>
+<p>연관된 필드 바로 뒤에 별명을 지정하십시오.
+예를 들어, 다음 쿼리에는 Name 필드의 n과 MAX (Amount) 집계 필드의 max라는 두 개의 별칭이 포함되어 있습니다.</p>
+</blockquote>
+
+<pre><code class="language-sql">  SELECT Name n, MAX(Amount) max
+    FROM Opportunity
+GROUP BY Name
+
+다음 예제에서 MAX (Amount)는 expr0의 암시 적 별칭을 가지며 MIN (Amount)은 expr1의 암시 적 별칭을가집니다.
+
+  SELECT Name, MAX(Amount), MIN(Amount)
+    FROM Opportunity
+GROUP BY Name
+
+다음 쿼리에서 MIN (Amount)은 min이라는 명시적인 별칭을가집니다.
+MAX (Amount)에는 expr0의 암시 적 별칭이 있고 SUM (Amount)에는 expr1의 암시 적 별칭이 있습니다.
+
+  SELECT Name, MAX(Amount), MIN(Amount) min, SUM(Amount)
+    FROM Opportunity
+GROUP BY Name
+</code></pre>
+
+<h6 id="nbsp-2">&nbsp;</h6>
+
+<h3 id="group-by-rollup">GROUP BY ROLLUP</h3>
+
+<pre><code class="language-sql">         SELECT LeadSource, COUNT(Name) cnt
+           FROM Lead
+GROUP BY ROLLUP (LeadSource)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>LeadSource</th>
+<th align="left">cnt</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Web</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>Phone Inquiry</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Partner Referral</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Purchased List</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>Null</td>
+<td align="left">22</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="nbsp-3">&nbsp;</h6>
+
+<pre><code class="language-sql">         SELECT Status, LeadSource, COUNT(Name) cnt
+           FROM Lead
+GROUP BY ROLLUP (Status, LeadSource)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th align="left">LeadSource</th>
+<th align="left">cnt</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Open - Not Contacted</td>
+<td align="left">Web</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Open - Not Contacted</td>
+<td align="left">Phone Inquiry</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Open - Not Contacted</td>
+<td align="left">Purchased List</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Open - Not Contacted</td>
+<td align="left">null</td>
+<td align="left">3</td>
+</tr>
+
+<tr>
+<td>Working - Contacted</td>
+<td align="left">Web</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Working - Contacted</td>
+<td align="left">Phone Inquiry</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Working - Contacted</td>
+<td align="left">Partner Referral</td>
+<td align="left">3</td>
+</tr>
+
+<tr>
+<td>Working - Contacted</td>
+<td align="left">Purchased List</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Working - Contacted</td>
+<td align="left">null</td>
+<td align="left">12</td>
+</tr>
+
+<tr>
+<td>Closed - Converted</td>
+<td align="left">Web</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Converted</td>
+<td align="left">Phone Inquiry</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Converted</td>
+<td align="left">Purchased List</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Converted</td>
+<td align="left">null</td>
+<td align="left">3</td>
+</tr>
+
+<tr>
+<td>Closed - Not Converted</td>
+<td align="left">Web</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Not Converted</td>
+<td align="left">Phone Inquiry</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Not Converted</td>
+<td align="left">Partner Referral</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Not Converted</td>
+<td align="left">Purchased List</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Closed - Not Converted</td>
+<td align="left">null</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">null</td>
+<td align="left">22</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="nbsp-4">&nbsp;</h6>
+
+<pre><code class="language-sql">         SELECT LeadSource, Rating,
+                GROUPING(LeadSource) grpLS, GROUPING(Rating) grpRating,
+                COUNT(Name) cnt
+           FROM Lead
+GROUP BY ROLLUP (LeadSource, Rating)
+</code></pre>
+
+<p><em>grpRating = 1은 결과가 등급 필드로 그룹화되었음을 나타냅니다.</em></p>
+
+<table>
+<thead>
+<tr>
+<th>LeadSource</th>
+<th align="left">Rating</th>
+<th align="left">grpLS</th>
+<th align="left">grpRating</th>
+<th align="left">cnt</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Web</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">5</td>
+</tr>
+
+<tr>
+<td>Web</td>
+<td align="left">Hot</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Web</td>
+<td align="left">Warm</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Web</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>Phone Inquiry</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Phone Inquiry</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Partner Referral</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Partner Referral</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Purchased List</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>Purchased List</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">null</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">22</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="nbsp-5">&nbsp;</h6>
+
+<pre><code class="language-sql">       SELECT Type, BillingCountry,
+              GROUPING(Type) grpType, GROUPING(BillingCountry) grpCty,
+              COUNT(id) accts
+         FROM Account
+GROUP BY CUBE (Type, BillingCountry)
+     ORDER BY GROUPING(Type), GROUPING(BillingCountry)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th align="left">BillingCountry</th>
+<th align="left">grpType</th>
+<th align="left">grpCty</th>
+<th align="left">accts</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Customer - Direct</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">6</td>
+</tr>
+
+<tr>
+<td>Customer - Channel</td>
+<td align="left">USA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Customer - Channel</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">2</td>
+</tr>
+
+<tr>
+<td>Customer - Direct</td>
+<td align="left">USA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Customer - Channel</td>
+<td align="left">France</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">USA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Customer - Channel</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>Customer - Direct</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">null</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">France</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">USA</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">3</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">null</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">8</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">null</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">12</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>이러한 쿼리 결과를 사용하여 결과에 대한 크로스 테이블 보고서를 제공 할 수 있습니다.</em></p>
+
+<table>
+<thead>
+<tr>
+<th>Type/BillingCountry</th>
+<th align="left">USA</th>
+<th align="left">France</th>
+<th align="left">null</th>
+<th align="left">Total</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Customer - Direct</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">6</td>
+<td align="left">7</td>
+</tr>
+
+<tr>
+<td>Customer - Channel</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">2</td>
+<td align="left">4</td>
+</tr>
+
+<tr>
+<td>null</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+
+<tr>
+<td>Total - Direct</td>
+<td align="left">3</td>
+<td align="left">1</td>
+<td align="left">8</td>
+<td align="left">12</td>
+</tr>
+</tbody>
+</table>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/soql">SOQL</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      <li>
+                          <a class="dkhome-link" href="http://www.dkbmc.com/" target="_blank" title="DKBMC 홈페이지" 
+                          style="background-image:url('https://DKBMC-Official.github.io//img/ico-cloud.png');"></a>
+                      </li>
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    
+
+</body>
+
+</html>
+

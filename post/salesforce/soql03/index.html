@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="날짜">
     <meta name="author" content="[Yong-Jin]">
     <meta name="keywords" content="">
 
@@ -90,10 +90,10 @@
         <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>SOQL 기본문법(02)</h1>
-               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;"></h2>
+               <h1>SOQL 기본문법(03)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;">날짜</h2>
                <hr class="small" style="border-color: #0085a1;"/>
-               <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
+               <span class="post-preview_date"><b>Mon, May 27, 2019</b></span>
                <span style="color:#333;font-size: 1.65rem;">written by</span>
                 <a href="#" class="author">
                 <span>Yong-Jin</span>
@@ -113,154 +113,233 @@
 
 <!-- 게시글 내용 -->
 
-<h3 id="복수-선택-picklist-쿼리">복수 선택 Picklist 쿼리</h3>
+<h3 id="날짜-형식">날짜 형식</h3>
 
 <table>
 <thead>
 <tr>
-<th>Operator</th>
-<th align="left">Description</th>
+<th>Format</th>
+<th align="left">Format Syntax</th>
+<th align="left">Example</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>=</td>
-<td align="left">Equals the specified string.</td>
+<td>Date only</td>
+<td align="left">YYYY-MM-DD</td>
+<td align="left">1999-01-01</td>
 </tr>
 
 <tr>
-<td>!=</td>
-<td align="left">Does not equal the specified string.</td>
-</tr>
-
-<tr>
-<td>includes</td>
-<td align="left">Includes (contains) the specified string.</td>
-</tr>
-
-<tr>
-<td>excludes</td>
-<td align="left">Excludes (does not contain) the specified string.</td>
-</tr>
-
-<tr>
-<td>;</td>
-<td align="left">Specifies AND for two or more strings.</td>
+<td>Date, time, and time zone offset</td>
+<td align="left">YYYY-MM-DDThh:mm:ss+hh:mm <br/> YYYY-MM-DDThh:mm:ss-hh:mm <br/> YYYY-MM-DDThh:mm:ssZ</td>
+<td align="left">1999-01-01T23:01:01+01:00 <br/> 1999-01-01T23:01:01-08:00 <br/> 1999-01-01T23:01:01Z</td>
 </tr>
 </tbody>
 </table>
 
-<pre><code class="language-sql">SELECT Id, MSP1__c FROM CustObj__c WHERE MSP1__c = 'AAA;BBB'
-SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes ('AAA;BBB','CCC')
+<pre><code class="language-sql">SELECT Id
+  FROM Account
+ WHERE CreatedDate &gt; 2005-10-08T01:02:03Z
 </code></pre>
 
 <h6 id="nbsp">&nbsp;</h6>
 
-<h3 id="비교-연산자">비교 연산자</h3>
+<h3 id="날짜-문자">날짜 문자</h3>
 
 <table>
 <thead>
 <tr>
-<th>Operator</th>
-<th align="left">Name</th>
-<th align="left">Description</th>
+<th>Date Literal</th>
+<th align="left">Example</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>=</td>
-<td align="left">Equals</td>
-<td align="left"></td>
+<td>YESTERDAY</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = YESTERDAY</td>
 </tr>
 
 <tr>
-<td>!=</td>
-<td align="left">Not equals</td>
-<td align="left"></td>
+<td>TODAY</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; TODAY</td>
 </tr>
 
 <tr>
-<td>&lt;</td>
-<td align="left">Less than</td>
-<td align="left"></td>
+<td>TOMORROW</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate = TOMORROW</td>
 </tr>
 
 <tr>
-<td>&lt;=</td>
-<td align="left">Less or equal</td>
-<td align="left"></td>
+<td>LAST_WEEK</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; LAST_WEEK</td>
 </tr>
 
 <tr>
-<td>&gt;</td>
-<td align="left">Greater than</td>
-<td align="left"></td>
+<td>THIS_WEEK</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; THIS_WEEK</td>
 </tr>
 
 <tr>
-<td>&gt;=</td>
-<td align="left">Greater or equal</td>
-<td align="left"></td>
+<td>NEXT_WEEK</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate = NEXT_WEEK</td>
 </tr>
 
 <tr>
-<td>LIKE</td>
-<td align="left">Like</td>
-<td align="left">SELECT AccountId, FirstName, lastname <br/>FROM Contact <br/> WHERE lastname LIKE&rsquo;appl%&rsquo;</td>
+<td>LAST_MONTH</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; LAST_MONTH</td>
 </tr>
 
 <tr>
-<td>IN</td>
-<td align="left">IN</td>
-<td align="left">SELECT Name FROM Account <br/> WHERE BillingState IN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
+<td>THIS_MONTH</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; THIS_MONTH</td>
 </tr>
 
 <tr>
-<td>NOT IN</td>
-<td align="left">NOT IN</td>
-<td align="left">SELECT Name FROM Account<br/>WHERE BillingState NOTIN (&lsquo;California&rsquo;, &rsquo;New York&rsquo;)</td>
+<td>NEXT_MONTH</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate = NEXT_MONTH</td>
 </tr>
 
 <tr>
-<td>INCLUDES <br/> EXCLUDES</td>
-<td align="left"></td>
-<td align="left">Applies only to multi-select picklists.</td>
-</tr>
-</tbody>
-</table>
-
-<h6 id="nbsp-1">&nbsp;</h6>
-
-<h3 id="논리-연산자">논리 연산자</h3>
-
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th align="left">Syntax</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>AND</td>
-<td align="left">X AND Y</td>
-<td align="left">true if both X and Y are true.</td>
+<td>LAST_90_DAYS</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = LAST_90_DAYS</td>
 </tr>
 
 <tr>
-<td>OR</td>
-<td align="left">X OR Y</td>
-<td align="left">true if either X or Y is true.</td>
+<td>NEXT_90_DAYS</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; NEXT_90_DAYS</td>
 </tr>
 
 <tr>
-<td>NOT</td>
-<td align="left">NOT X</td>
-<td align="left">true if X is false.</td>
+<td>LAST_N_DAYS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = LAST_N_DAYS:365</td>
+</tr>
+
+<tr>
+<td>NEXT_N_DAYS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; NEXT_N_DAYS:15</td>
+</tr>
+
+<tr>
+<td>NEXT_N_WEEKS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; NEXT_N_WEEKS:4</td>
+</tr>
+
+<tr>
+<td>LAST_N_WEEKS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = LAST_N_WEEKS:52</td>
+</tr>
+
+<tr>
+<td>NEXT_N_MONTHS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; NEXT_N_MONTHS:2</td>
+</tr>
+
+<tr>
+<td>LAST_N_MONTHS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = LAST_N_MONTHS:12</td>
+</tr>
+
+<tr>
+<td>THIS_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = THIS_QUARTER</td>
+</tr>
+
+<tr>
+<td>LAST_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; LAST_QUARTER</td>
+</tr>
+
+<tr>
+<td>NEXT_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; NEXT_QUARTER</td>
+</tr>
+
+<tr>
+<td>NEXT_N_QUARTERS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; NEXT_N_QUARTERS:2</td>
+</tr>
+
+<tr>
+<td>LAST_N_QUARTERS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; LAST_N_QUARTERS:2</td>
+</tr>
+
+<tr>
+<td>THIS_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate = THIS_YEAR</td>
+</tr>
+
+<tr>
+<td>LAST_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; LAST_YEAR</td>
+</tr>
+
+<tr>
+<td>NEXT_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &lt; NEXT_YEAR</td>
+</tr>
+
+<tr>
+<td>NEXT_N_YEARS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &lt; NEXT_N_YEARS:5</td>
+</tr>
+
+<tr>
+<td>LAST_N_YEARS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; LAST_N_YEARS:5</td>
+</tr>
+
+<tr>
+<td>THIS_FISCAL_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate = THIS_FISCAL_QUARTER</td>
+</tr>
+
+<tr>
+<td>LAST_FISCAL_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; LAST_FISCAL_QUARTER</td>
+</tr>
+
+<tr>
+<td>NEXT_FISCAL_QUARTER</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; NEXT_FISCAL_QUARTER</td>
+</tr>
+
+<tr>
+<td>NEXT_N_FISCAL_QUARTERS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &lt; NEXT_N_FISCAL_QUARTERS:6</td>
+</tr>
+
+<tr>
+<td>LAST_N_FISCAL_QUARTERS:n</td>
+<td align="left">SELECT Id FROM Account WHERE CreatedDate &gt; LAST_N_FISCAL_QUARTERS:6</td>
+</tr>
+
+<tr>
+<td>THIS_FISCAL_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate = THIS_FISCAL_YEAR</td>
+</tr>
+
+<tr>
+<td>LAST_FISCAL_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; LAST_FISCAL_YEAR</td>
+</tr>
+
+<tr>
+<td>NEXT_FISCAL_YEAR</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &lt; NEXT_FISCAL_YEAR</td>
+</tr>
+
+<tr>
+<td>NEXT_N_FISCAL_YEARS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &lt; NEXT_N_FISCAL_YEARS:3</td>
+</tr>
+
+<tr>
+<td>LAST_N_FISCAL_YEARS:n</td>
+<td align="left">SELECT Id FROM Opportunity WHERE CloseDate &gt; LAST_N_FISCAL_YEARS:3</td>
 </tr>
 </tbody>
 </table>

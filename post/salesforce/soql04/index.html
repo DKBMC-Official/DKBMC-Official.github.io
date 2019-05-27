@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="DK BMC">
+    <meta name="description" content="범위 사용">
+    <meta name="author" content="[Yong-Jin]">
     <meta name="keywords" content="">
 
     <meta name="theme-color" content="#ffffff">
@@ -26,9 +26,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
 
-    
-    <link href="https://DKBMC-Official.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="Technology" />
-    <link href="https://DKBMC-Official.github.io/post/index.xml" rel="feed" type="application/rss+xml" title="Technology" />
     
 
     
@@ -84,117 +81,200 @@
         
     </nav>
 
+
     
-    <header class="intro-header post-header" style="background-image: url('https://DKBMC-Official.github.io//img/home-bg.jpg');height:35rem;border-bottom: none;">
     
-     <div class="container">
-        <div class="row" >
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');height:35rem;border-bottom: none;">
+      
+      <div class="container">
+        <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>Posts</h1>
-               <hr class="small" style="border-color:#0085a1;">
-               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;"></h2>
+               <h1>SOQL 기본문법(04)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;">범위 사용</h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Mon, May 27, 2019</b></span>
+               <span style="color:#333;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>Yong-Jin</span>
+                </a>
+               
              </div>
            </div>
         </div>
       </div>
     </header>
-
     
-    <div class="container">
-      <div class="row" style="width:100%">
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 p-horizontal col-md-offset-1">
-          
-                             <div class="post-preview">
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
                   
-                  <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
-                 <a href="https://DKBMC-Official.github.io/post/salesforce/soql02/">
-                    
-                      <h2 class="post-title">SOQL 기본문법(02)</h2>
-                    </a>
-                    
-                    <p class="post-meta">
-                        Category : <sapn class="tag_wrap">
-                            <a href="/categories/soql">SOQL</a>
 
-                        </span>
-                  </p>
-               </div>
-               <hr>
+<!-- 게시글 내용 -->
 
-          
-                             <div class="post-preview">
+<h3 id="범위-사용">범위 사용</h3>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h4 id="using-scope">USING SCOPE</h4>
+
+<table>
+<thead>
+<tr>
+<th>filterScope</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Delegated</td>
+<td align="left">Filter for records delegated to another user for action. <br/> For example, a query could filter for only delegated Task records.</td>
+</tr>
+
+<tr>
+<td>Everything</td>
+<td align="left">Filter for all records.</td>
+</tr>
+
+<tr>
+<td>Mine</td>
+<td align="left">Filter for records owned by the user running the query.</td>
+</tr>
+
+<tr>
+<td>MineAndMyGroups</td>
+<td align="left">Filter for records assigned to the user running the query and the user’s queues.</td>
+</tr>
+
+<tr>
+<td>My_Territory</td>
+<td align="left">Filter for records in the territory of the user running the query. <br/> This option is available if territory management is enabled for your organization.</td>
+</tr>
+
+<tr>
+<td>My_Team_Territory</td>
+<td align="left">Filter for records in the territory of the team of the user running the query. <br/> This option is available if territory management is enabled for your organization.</td>
+</tr>
+
+<tr>
+<td>Team</td>
+<td align="left">Filter for records assigned to a team, such as an Account team.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT Id, Name 
+  FROM Account USINGSCOPE Mine
+</code></pre>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h4 id="order-by">ORDER BY</h4>
+
+<pre><code class="language-sql">[ ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
+</code></pre>
+
+<pre><code class="language-sql">  SELECT Name
+    FROM Account
+ORDER BY Name DESCNULLSLAST
+
+  SELECT Id, CaseNumber, Account.Id, Account.Name
+    FROM Case
+ORDER BY Account.Name
+
+  SELECT Name
+    FROM Account
+   WHERE industry = 'media'
+ORDER BY BillingPostalCode ASCNULLSLASTLIMIT125
+</code></pre>
+
+<h6 id="nbsp-2">&nbsp;</h6>
+
+<h4 id="limit">LIMIT</h4>
+
+<pre><code class="language-sql">SELECT Name
+  FROM Account
+ WHERE Industry = 'Media'LIMIT125
+</code></pre>
+
+<h6 id="nbsp-3">&nbsp;</h6>
+
+<h4 id="offset">OFFSET</h4>
+
+<pre><code class="language-sql">  SELECT Name
+    FROM Merchandise__c
+   WHERE Price__c &gt; 5.0
+ORDER BY Name
+   LIMIT 100
+ OFF SET 10
+</code></pre>
+
+<h5 id="offset-사용시-고려-사항">OFFSET 사용시 고려 사항</h5>
+
+<blockquote>
+<ol>
+<li>The maximum offset is 2,000 rows. Requesting an offset greater than 2,000 results in a NUMBER_OUTSIDE_VALID_RANGE error.</li>
+<li>OFFSET is intended to be used in a top-level query, and is not allowed in most subqueries, so the following query is invalid and returns a MALFORMED_QUERY error:</li>
+</ol>
+</blockquote>
+
+<pre><code class="language-sql">( Error )
+  SELECT Name, Id
+    FROM Merchandise__c
+   WHERE Id IN
+    (
+         SELECT Id
+           FROM Discontinued_Merchandise__c
+          LIMIT 100
+        OFF SET 20
+    )
+ORDER BY Name
+
+( OK )
+  SELECT Name, Id
+    (
+        SELECT Name 
+          FROM Opportunity LIMIT10 OFFSET 2
+    )
+    FROM Account
+ORDER BY Name
+   LIMIT 1
+</code></pre>
+
                   
-                  <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
-                 <a href="https://DKBMC-Official.github.io/post/salesforce/soql01/">
-                    
-                      <h2 class="post-title">SOQL 기본문법(01)</h2>
-                    </a>
-                    
-                    <p class="post-meta">
-                        Category : <sapn class="tag_wrap">
-                            <a href="/categories/soql">SOQL</a>
+   
 
-                        </span>
-                  </p>
-               </div>
-               <hr>
 
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
           
-          <div class="pagination_wrap">
 
-              
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/post/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="/post/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/post/page/2/">2</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/post/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
+<div class="tag_wrap">
+<a href="/categories/soql">SOQL</a>
 
-          </div>
-          
+</div>
+
+
         </div>
-      </div>
-    </div>
+          </span>
+            
+        </div>
 
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
     <hr>
     
     <footer>

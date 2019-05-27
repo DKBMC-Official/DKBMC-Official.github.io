@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©DKBMC. All rights reserved. Powered by GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 24 May 2019 14:25:50 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2019 13:09:57 +0900</lastBuildDate>
     
 	<atom:link href="https://DKBMC-Official.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SOQL 기본문법(05)</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql05/</link>
+      <pubDate>Mon, 27 May 2019 13:09:57 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql05/</guid>
+      <description>GROUP BY SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource SELECT LeadSource FROM Lead GROUP BY LeadSource  &amp;nbsp; GROUP BY 사용시 고려 사항   일부 오브젝트 필드에는 그룹화를 지원하지 않는 필드 유형이 있습니다. 쿼리가 LIMIT 절과 집계 된 함수를 사용하는 경우 GROUP BY 절을 사용해야합니다. GROUP을 사용하는 쿼리에서 __r 구문을 사용하는 자식 관계 식을 사용할 수 없습니다.   &amp;nbsp; GROUP BY와 함께 별칭 사용하기  연관된 필드 바로 뒤에 별명을 지정하십시오.</description>
+    </item>
+    
+    <item>
+      <title>SOQL 기본문법(04)</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql04/</link>
+      <pubDate>Mon, 27 May 2019 11:20:35 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql04/</guid>
+      <description>범위 사용 &amp;nbsp; USING SCOPE    filterScope Description     Delegated Filter for records delegated to another user for action.  For example, a query could filter for only delegated Task records.   Everything Filter for all records.   Mine Filter for records owned by the user running the query.   MineAndMyGroups Filter for records assigned to the user running the query and the user’s queues.</description>
+    </item>
+    
+    <item>
+      <title>SOQL 기본문법(03)</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql03/</link>
+      <pubDate>Mon, 27 May 2019 11:08:25 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql03/</guid>
+      <description> 날짜 형식    Format Format Syntax Example     Date only YYYY-MM-DD 1999-01-01   Date, time, and time zone offset YYYY-MM-DDThh:mm:ss+hh:mm  YYYY-MM-DDThh:mm:ss-hh:mm  YYYY-MM-DDThh:mm:ssZ 1999-01-01T23:01:01+01:00  1999-01-01T23:01:01-08:00  1999-01-01T23:01:01Z    SELECT Id FROM Account WHERE CreatedDate &amp;gt; 2005-10-08T01:02:03Z  &amp;nbsp; 날짜 문자    Date Literal Example     YESTERDAY SELECT Id FROM Account WHERE CreatedDate = YESTERDAY   TODAY SELECT Id FROM Account WHERE CreatedDate &amp;gt; TODAY   TOMORROW SELECT Id FROM Opportunity WHERE CloseDate = TOMORROW   LAST_WEEK SELECT Id FROM Account WHERE CreatedDate &amp;gt; LAST_WEEK   THIS_WEEK SELECT Id FROM Account WHERE CreatedDate &amp;lt; THIS_WEEK   NEXT_WEEK SELECT Id FROM Opportunity WHERE CloseDate = NEXT_WEEK   LAST_MONTH SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; LAST_MONTH   THIS_MONTH SELECT Id FROM Account WHERE CreatedDate &amp;lt; THIS_MONTH   NEXT_MONTH SELECT Id FROM Opportunity WHERE CloseDate = NEXT_MONTH   LAST_90_DAYS SELECT Id FROM Account WHERE CreatedDate = LAST_90_DAYS   NEXT_90_DAYS SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; NEXT_90_DAYS   LAST_N_DAYS:n SELECT Id FROM Account WHERE CreatedDate = LAST_N_DAYS:365   NEXT_N_DAYS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; NEXT_N_DAYS:15   NEXT_N_WEEKS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; NEXT_N_WEEKS:4   LAST_N_WEEKS:n SELECT Id FROM Account WHERE CreatedDate = LAST_N_WEEKS:52   NEXT_N_MONTHS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; NEXT_N_MONTHS:2   LAST_N_MONTHS:n SELECT Id FROM Account WHERE CreatedDate = LAST_N_MONTHS:12   THIS_QUARTER SELECT Id FROM Account WHERE CreatedDate = THIS_QUARTER   LAST_QUARTER SELECT Id FROM Account WHERE CreatedDate &amp;gt; LAST_QUARTER   NEXT_QUARTER SELECT Id FROM Account WHERE CreatedDate &amp;lt; NEXT_QUARTER   NEXT_N_QUARTERS:n SELECT Id FROM Account WHERE CreatedDate &amp;lt; NEXT_N_QUARTERS:2   LAST_N_QUARTERS:n SELECT Id FROM Account WHERE CreatedDate &amp;gt; LAST_N_QUARTERS:2   THIS_YEAR SELECT Id FROM Opportunity WHERE CloseDate = THIS_YEAR   LAST_YEAR SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; LAST_YEAR   NEXT_YEAR SELECT Id FROM Opportunity WHERE CloseDate &amp;lt; NEXT_YEAR   NEXT_N_YEARS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;lt; NEXT_N_YEARS:5   LAST_N_YEARS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; LAST_N_YEARS:5   THIS_FISCAL_QUARTER SELECT Id FROM Account WHERE CreatedDate = THIS_FISCAL_QUARTER   LAST_FISCAL_QUARTER SELECT Id FROM Account WHERE CreatedDate &amp;gt; LAST_FISCAL_QUARTER   NEXT_FISCAL_QUARTER SELECT Id FROM Account WHERE CreatedDate &amp;lt; NEXT_FISCAL_QUARTER   NEXT_N_FISCAL_QUARTERS:n SELECT Id FROM Account WHERE CreatedDate &amp;lt; NEXT_N_FISCAL_QUARTERS:6   LAST_N_FISCAL_QUARTERS:n SELECT Id FROM Account WHERE CreatedDate &amp;gt; LAST_N_FISCAL_QUARTERS:6   THIS_FISCAL_YEAR SELECT Id FROM Opportunity WHERE CloseDate = THIS_FISCAL_YEAR   LAST_FISCAL_YEAR SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; LAST_FISCAL_YEAR   NEXT_FISCAL_YEAR SELECT Id FROM Opportunity WHERE CloseDate &amp;lt; NEXT_FISCAL_YEAR   NEXT_N_FISCAL_YEARS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;lt; NEXT_N_FISCAL_YEARS:3   LAST_N_FISCAL_YEARS:n SELECT Id FROM Opportunity WHERE CloseDate &amp;gt; LAST_N_FISCAL_YEARS:3    </description>
+    </item>
     
     <item>
       <title>SOQL 기본문법(02)</title>
