@@ -4,31 +4,46 @@
   
   <url>
     <loc>https://DKBMC-Official.github.io/categories/</loc>
-    <lastmod>2019-05-27T13:09:57+09:00</lastmod>
+    <lastmod>2019-05-28T13:31:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://DKBMC-Official.github.io/post/</loc>
-    <lastmod>2019-05-27T13:09:57+09:00</lastmod>
+    <lastmod>2019-05-28T13:31:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://DKBMC-Official.github.io/categories/soql/</loc>
-    <lastmod>2019-05-27T13:09:57+09:00</lastmod>
+    <lastmod>2019-05-28T13:31:56+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/salesforce/soql08/</loc>
+    <lastmod>2019-05-28T13:31:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/</loc>
+    <lastmod>2019-05-28T13:31:56+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/salesforce/soql07/</loc>
+    <lastmod>2019-05-28T13:09:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/salesforce/soql06/</loc>
+    <lastmod>2019-05-28T11:12:45+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://DKBMC-Official.github.io/post/salesforce/soql05/</loc>
     <lastmod>2019-05-27T13:09:57+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://DKBMC-Official.github.io/</loc>
-    <lastmod>2019-05-27T13:09:57+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

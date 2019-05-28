@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Date Functions (날짜 함수)">
+    <meta name="author" content="[Yong-Jin]">
+    <meta name="keywords" content="">
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/ico-dktech.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/ico-dktech.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');height:35rem;border-bottom: none;">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>SOQL 기본문법(08)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;">Date Functions (날짜 함수)</h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Tue, May 28, 2019</b></span>
+               <span style="color:#333;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>Yong-Jin</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="date-functions-날짜-함수">Date Functions (날짜 함수)</h3>
+
+<p>SOQL 쿼리의 날짜 함수를 사용하면 일별, 월별 또는 회계 연도와 같은 날짜 기간별로 데이터를 그룹화하거나 필터링 할 수 있습니다.</p>
+
+<pre><code class="language-sql">  SELECT CALENDAR_YEAR(CreatedDate), SUM(Amount)
+    FROM Opportunity
+GROUP BY CALENDAR_YEAR(CreatedDate)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Date Function</th>
+<th align="left">Description</th>
+<th align="left">Examples</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CALENDAR_MONTH()</td>
+<td align="left">월 (숫자)</td>
+<td align="left">1 for January <br/> 12 for December</td>
+</tr>
+
+<tr>
+<td>CALENDAR_QUARTER()</td>
+<td align="left">분기 (숫자)</td>
+<td align="left">1 for January 1 through March 31<br/>2 for April 1 through June 30<br/>3 for July 1 through September 30<br/>4 for October 1 through December 31</td>
+</tr>
+
+<tr>
+<td>CALENDAR_YEAR()</td>
+<td align="left">년 (숫자)</td>
+<td align="left">2009</td>
+</tr>
+
+<tr>
+<td>DAY_IN_MONTH()</td>
+<td align="left">일자 (숫자)</td>
+<td align="left">20 for February 20</td>
+</tr>
+
+<tr>
+<td>DAY_IN_WEEK()</td>
+<td align="left">요일 (숫자)</td>
+<td align="left">1 for Sunday <br/> 7 for Saturday</td>
+</tr>
+
+<tr>
+<td>DAY_IN_YEAR()</td>
+<td align="left">년의 일자 (숫자)</td>
+<td align="left">32 for February 1</td>
+</tr>
+
+<tr>
+<td>DAY_ONLY()</td>
+<td align="left">DateTime 형식 <br/> 날짜만 반환</td>
+<td align="left">2009-09-22 for September 22, 2009<br/>You can only use DAY_ONLY() with dateTime fields.</td>
+</tr>
+
+<tr>
+<td>FISCAL_MONTH()</td>
+<td align="left">회계 월 (숫자)</td>
+<td align="left">If your fiscal year starts in March: <br/> 1 for March <br/> 12 for February</td>
+</tr>
+
+<tr>
+<td>FISCAL_QUARTER()</td>
+<td align="left">회계 분기 (숫자)</td>
+<td align="left">If your fiscal year starts in July:<br/> 1 for July 15<br/> 4 for June 6</td>
+</tr>
+
+<tr>
+<td>FISCAL_YEAR()</td>
+<td align="left">회계 년 (숫자)</td>
+<td align="left">2009</td>
+</tr>
+
+<tr>
+<td>HOUR_IN_DAY()</td>
+<td align="left">시간 (숫자)</td>
+<td align="left">18 for a time of 18:23:10 <br/> You can only use HOUR_IN_DAY() with dateTime fields.</td>
+</tr>
+
+<tr>
+<td>WEEK_IN_MONTH()</td>
+<td align="left">월의 주차 (숫자)</td>
+<td align="left">2 for April 10 <br/>The first week is from the first through the seventh day of the month.</td>
+</tr>
+
+<tr>
+<td>WEEK_IN_YEAR()</td>
+<td align="left">년의 주차 (숫자)</td>
+<td align="left">1 for January 3 <br/>The first week is from January 1 through January 7.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">( OK )
+SELECT CreatedDate, Amount
+  FROM Opportunity
+ WHERE CALENDAR_YEAR(CreatedDate) = 2009
+
+( Error )
+SELECT CreatedDate, Amount
+  FROM Opportunity
+ WHERE CALENDAR_YEAR(CreatedDate) = THIS_YEAR
+
+( Error )
+SELECT CALENDAR_YEAR(CreatedDate), Amount
+  FROM Opportunity
+
+( OK )
+  SELECT CALENDAR_YEAR(CloseDate)
+    FROM Opportunity
+GROUP BY CALENDAR_YEAR(CloseDate)
+</code></pre>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h3 id="converting-time-zones-in-date-functions-날짜-함수에서-표준-시간대-변환">Converting Time Zones in Date Functions (날짜 함수에서 표준 시간대 변환)</h3>
+
+<pre><code class="language-sql">  SELECT HOUR_IN_DAY(convertTimezone(CreatedDate)), SUM(Amount)
+    FROM Opportunity
+GROUP BY HOUR_IN_DAY(convertTimezone(CreatedDate))
+</code></pre>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h3 id="querying-currency-fields-in-multi-currency-orgs-복수-통화-조직의-통화-필드-쿼리">Querying Currency Fields in Multi-Currency Orgs (복수 통화 조직의 통화 필드 쿼리)</h3>
+
+<p>통화 필드를 사용자의 통화로 변환하려면 SOQL 쿼리의 SELECT 문에서 convertCurrency ()를 사용하십시오.</p>
+
+<pre><code class="language-sql">SELECT Id, convertCurrency(AnnualRevenue)
+  FROM Account
+</code></pre>
+
+<h6 id="nbsp-2">&nbsp;</h6>
+
+<h3 id="understanding-relationship-names-관계-이름-이해하기">Understanding Relationship Names (관계 이름 이해하기)</h3>
+
+<p><img src="https://developer.salesforce.com/docs/resources/img/en-us/218.0?doc_id=dev_guides%2Fsoql_sosl%2Fimages%2Frel_basic.gif&amp;folder=soql_sosl" alt="soql" /></p>
+
+<pre><code class="language-sql">SELECT Contact.FirstName, Contact.Account.Name 
+  FROM Contact
+
+SELECT Account.Name, 
+    (
+    SELECT Contact.FirstName, Contact.LastName 
+      FROM Account.Contacts
+    ) 
+  FROM Account
+</code></pre>
+
+<h6 id="nbsp-3">&nbsp;</h6>
+
+<h3 id="using-relationship-queries-관계-검색어-사용">Using Relationship Queries (관계 검색어 사용)</h3>
+
+<pre><code class="language-sql">SELECT Id, Name, Account.Name
+  FROM Contact
+ WHERE Account.Industry = 'media'
+
+SELECT Name,
+    (
+    SELECT LastName
+      FROM Contacts
+    )
+  FROM Account
+
+SELECT Name,
+    (
+    SELECT CreatedBy.Name
+    FROM Notes
+    )
+  FROM Account
+
+SELECT Amount, Id, Name,
+    (
+    SELECT Quantity, ListPrice, PricebookEntry.UnitPrice, PricebookEntry.Name
+      FROM OpportunityLineItems
+    )
+  FROM Opportunity
+
+SELECT Amount, Id, Name, 
+    (
+    SELECT Quantity, ListPrice, PriceBookEntry.UnitPrice, PricebookEntry.Name,
+           PricebookEntry.product2.Family 
+      FROM OpportunityLineItems
+    )
+  FROM Opportunity
+ 
+SELECT Name,
+    (
+    SELECT LastName
+      FROM Contacts
+     WHERE CreatedBy.Alias = 'x'
+    )
+  FROM Account
+ WHERE Industry = 'media'
+</code></pre>
+
+<h6 id="nbsp-4">&nbsp;</h6>
+
+<h3 id="understanding-relationship-names-custom-objects-and-custom-fields">Understanding Relationship Names, Custom Objects, and Custom Fields</h3>
+
+<h3 id="관계-이름-사용자-지정-개체-및-사용자-지정-필드-이해">(관계 이름, 사용자 지정 개체 및 사용자 지정 필드 이해)</h3>
+
+<p>Lookup field or Detail의 Parent Field 만들 때 Child Relationship Name 지정</p>
+
+<pre><code class="language-sql">예) Daughters
+
+SELECT Id, FirstName__c, Mother_of_Child__r.FirstName__c
+  FROM Daughter__c
+ WHERE Mother_of_Child__r.LastName__c LIKE'C%'
+
+SELECT LastName__c,
+    (
+    SELECT LastName__c
+      FROM Daughters__r
+    )
+  FROM Mother__c
+</code></pre>
+
+<h6 id="nbsp-5">&nbsp;</h6>
+
+<h3 id="understanding-query-results-쿼리-결과-이해하기">Understanding Query Results (쿼리 결과 이해하기)</h3>
+
+<pre><code class="language-sql">SELECT Id, FirstName, LastName, AccountId, Account.Name
+  FROM Contact
+ WHERE Account.Name LIKE 'Acme%'
+
+SELECT Id, Name,
+    (
+    SELECT Id, FirstName, LastName
+      FROM Contacts
+    )
+  FROM Account
+ WHERE Name like 'Acme%'
+</code></pre>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/soql">SOQL</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      <li>
+                          <a class="dkhome-link" href="http://www.dkbmc.com/" target="_blank" title="DKBMC 홈페이지" 
+                          style="background-image:url('https://DKBMC-Official.github.io//img/ico-cloud.png');"></a>
+                      </li>
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    
+
+</body>
+
+</html>
+

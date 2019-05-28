@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="HAVING">
     <meta name="author" content="[Yong-Jin]">
     <meta name="keywords" content="">
 
@@ -90,10 +90,10 @@
         <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>SOQL 기본문법(01)</h1>
-               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;"></h2>
+               <h1>SOQL 기본문법(06)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:1.85rem;">HAVING</h2>
                <hr class="small" style="border-color: #0085a1;"/>
-               <span class="post-preview_date"><b>Fri, May 24, 2019</b></span>
+               <span class="post-preview_date"><b>Tue, May 28, 2019</b></span>
                <span style="color:#333;font-size: 1.65rem;">written by</span>
                 <a href="#" class="author">
                 <span>Yong-Jin</span>
@@ -113,42 +113,161 @@
 
 <!-- 게시글 내용 -->
 
-<h3 id="soql-select-구문">SOQL SELECT 구문</h3>
+<h3 id="having">HAVING</h3>
 
-<pre><code class="language-sql">SELECT fieldList [subquery][...]
-[TYPEOF typeOfField whenExpression[...] elseExpression END][...]
-FROM objectType[,...]
-    [USINGSCOPE filterScope]
-[WHERE conditionExpression]
-[WITH [DATA CATEGORY] filteringExpression]
-[GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)}
-    [HAVING havingConditionExpression] ]
-[ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
-[LIMIT numberOfRowsToReturn]
-[OFF SET numberOfRowsToSkip]
-[FOR {VIEW  | REFERENCE}[,...] ]
-      [ UPDATE {TRACKING|VIEWSTAT}[,...] ]
+<p><strong>집계 함수가 반환하는 결과를 필터링</strong></p>
+
+<pre><code class="language-sql">  SELECT LeadSource, COUNT(Name)
+    FROM Lead
+GROUP BY LeadSource
+  HAVING COUNT(Name) &gt; 100
+
+  SELECT Name, Count(Id)
+    FROM Account
+GROUP BY Name
+  HAVING Count(Id) &gt; 1
+
 </code></pre>
 
 <h6 id="nbsp">&nbsp;</h6>
 
-<h3 id="soql-쿼리에서-null-사용">SOQL 쿼리에서 null 사용</h3>
+<h4 id="having을-사용할-때의-고려-사항">HAVING을 사용할 때의 고려 사항</h4>
 
-<pre><code class="language-sql">SELECT AccountId
-  FROM Event
- WHERE ActivityDate != null
+<pre><code class="language-sql">( OK )
+  SELECT LeadSource, COUNT(Name)
+    FROM Lead
+GROUP BY LeadSource
+  HAVING COUNT(Name) &gt; 100and LeadSource &gt; 'Phone'
 
-SELECT Id
-  FROM Case
- WHERE Contact.LastName = null
+( Error )
+  SELECT LeadSource, COUNT(Name)
+    FROM Lead
+GROUP BY LeadSource
+  HAVING COUNT(Name) &gt; 100and City LIKE'San%'
 </code></pre>
 
 <h6 id="nbsp-1">&nbsp;</h6>
 
-<h3 id="boolean-참-거짓-필드-필터링">Boolean(참/거짓) 필드 필터링</h3>
+<h3 id="typeof-bata">TYPEOF (BATA)</h3>
 
-<pre><code class="language-sql">WHERE BooleanField = TRUE
-WHERE BooleanField = FALSE 
+<p>TYPEOF는 다형성 관계를 포함하는 데이터를 쿼리 할 때 SOQL 쿼리의 SELECT 문에서 사용할 수있는 선택적 절입니다.</p>
+
+<pre><code class="language-sql">// 예제 1
+SELECT Name 
+FROM Account
+WHERE CreatedById IN 
+    (
+    SELECT 
+        TYPEOF Owner
+            WHEN UserTHEN Id
+            WHEN GroupTHEN CreatedById
+        END
+    FROM CASE
+    )
+
+// 예제 2
+SELECT
+    TYPEOF What
+        WHEN Account THEN Phone
+        ELSE Name
+    END
+FROM Event
+WHERE CreatedById IN
+    (
+    SELECT CreatedById
+    FROM Case
+    )
+
+// 예제 3
+SELECT
+    TYPEOF What
+        WHEN Account THEN Phone, NumberOfEmployees
+        WHEN Opportunity THEN Amount, CloseDate
+        ELSE Name, Email
+    END
+FROM Event
+</code></pre>
+
+<h6 id="nbsp-2">&nbsp;</h6>
+
+<h3 id="format">FORMAT()</h3>
+
+<p>SELECT 절에 FORMAT을 사용하면 표준 및 사용자 정의 숫자, 날짜, 시간 및 통화 필드에 현지화 된 서식을 적용 할 수 있습니다.</p>
+
+<pre><code class="language-sql">// 예제 1
+SELECT FORMAT(amount) Amt,
+       format(lastModifiedDate) editDate
+FROM Opportunity
+</code></pre>
+
+<p>Amt = &ldquo;AED 1,500.000000 (USD 1,000.00)&rdquo; <br/>
+editDate = &ldquo;7/2/2015 3:11 AM”</p>
+
+<pre><code class="language-sql">// 예제 2
+SELECT Id, LastModifiedDate, FORMAT(LastModifiedDate) formattedDate FROM Account
+
+SELECT amount,
+       FORMAT(amount) FORMAT_Amt,
+       convertCurrency(amount) convertedCurrency,
+       FORMAT(convertCurrency(amount)) FORMAT_convertedCurrency
+FROM Opportunity where id = '12345'
+</code></pre>
+
+<p>Amount = &ldquo;34500000&rdquo; <br/>
+FORMAT_Amt= &ldquo;KRW 34,500,000.00&rdquo; <br/>
+convertedCurrency =&ldquo;34500000&rdquo; <br/>
+FORMAT_convertedCurrency = &ldquo;KRW 34,500,000.00&rdquo; <br/></p>
+
+<pre><code class="language-sql">// 예제 3
+SELECT FORMAT(MIN(closedate)) Amt FROM opportunity
+</code></pre>
+
+<h6 id="nbsp-3">&nbsp;</h6>
+
+<h3 id="for-view">FOR VIEW</h3>
+
+<p>SOQL 쿼리에서 FOR VIEW 절을 사용하여 개체를 마지막으로 본 시간에 대한 정보로 개체를 업데이트 할 수 있습니다.<br/></p>
+
+<ul>
+<li>이 절을 쿼리와 함께 사용하면 다음 두 가지 작업이 수행됩니다.
+
+<ul>
+<li>검색된 레코드의 LastViewedDate 필드가 업데이트됩니다.</li>
+<li>검색된 레코드에 대해 최근에 본 데이터를 반영하기 위해 레코드가 RecentlyViewed 개체에 추가됩니다.</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-sql"> SELECT Name, ID FROM Contact  LIMIT1FORVIEW
+</code></pre>
+
+<h6 id="nbsp-4">&nbsp;</h6>
+
+<h3 id="for-reference">FOR REFERENCE</h3>
+
+<p>FOR REFERENCE는 모바일 응용 프로그램 또는 사용자 정의 페이지에서와 같이 사용자 정의 인터페이스에서 <br/>
+레코드를 참조 할 때 Salesforce에 알리기 위해 SOQL 쿼리에 사용할 수있는 선택적 절입니다.</p>
+
+<ul>
+<li>이 절을 쿼리와 함께 사용하면 다음 두 가지 작업이 수행됩니다.
+
+<ul>
+<li>LastReferencedDate 필드는 검색된 레코드에 대해 업데이트됩니다.</li>
+<li>검색된 각 레코드에 대해 최근 참조 된 데이터를 반영하기 위해 레코드가 RecentlyViewed 개체에 추가됩니다.</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-sql"> SELECT Name, ID FROM Contact  LIMIT1FOR REFERENCE
+</code></pre>
+
+<h6 id="nbsp-5">&nbsp;</h6>
+
+<h3 id="for-update">FOR UPDATE</h3>
+
+<p>Apex에서 경쟁 업데이트 및 기타 스레드 안전 문제를 방지하기 위해 FOR UPDATE를 사용하여 <br/>
+sObject 레코드가 업데이트되는 동안 해당 레코드를 잠글 수 있습니다. <br/>
+잠금을 사용하는 모든 SOQL 쿼리에서 ORDER BY 키워드를 사용할 수 없습니다.</p>
+
+<pre><code class="language-c#">Account [] accts = [SELECT Id FROM Account LIMIT 2 FOR UPDATE];
 </code></pre>
 
                   
