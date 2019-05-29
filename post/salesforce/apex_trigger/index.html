@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="[Yong-Jin]">
+    <meta name="keywords" content="">
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/ico-dktech.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/ico-dktech.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>Apex Trigger</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:2.25rem;"></h2>
+               <hr class="small" style="border-color: #0085a1;"/>
+               <span class="post-preview_date"><b>Wed, May 29, 2019</b></span>
+               <span style="color:#fff;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>Yong-Jin</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="trigger">Trigger</h3>
+
+<p>트리거를 사용하여 Apex를 호출 할 수 있습니다.
+Apex 트리거를 사용하면 삽입, 업데이트 또는 삭제와 같은 Salesforce 레코드 변경 전후에 사용자 지정 작업을 수행 할 수 있습니다.</p>
+
+<ul>
+<li>트리거는 다음 유형의 작업 전후에 실행되는 Apex 코드입니다.
+
+<ul>
+<li>insert</li>
+<li>update</li>
+<li>delete</li>
+<li>merge</li>
+<li>upsert</li>
+<li>undelete</li>
+</ul></li>
+</ul>
+
+<p><em>Before 트리거</em><br/>
+레코드 값이 데이터베이스에 저장되기 전에 업데이트 또는 유효성 검사에 사용됩니다.</p>
+
+<p><em>After 트리거</em><br/>
+비동기 이벤트를 실행하는 등 다른 레코드의 변경 사항에 영향을 미치기 위해 사용<br/>
+<strong>동작하는 동안 레코드는 읽기 전용.</strong></p>
+
+<h6 id="nbsp">&nbsp;</h6>
+
+<h4 id="구현-고려-사항">구현 고려 사항</h4>
+
+<p><em>upsert 트리거</em><br/>
+Insert - Beforce, After 또는 Update - Before, After<br/></p>
+
+<p><em>merge 트리거</em><br/>
+    지워지는 레코드의 Delete - Before, After<br/>
+    업데이트 되는 레코드의 Update - Before, After<br/></p>
+
+<p><em>undeleted 트리거</em><br/>
+    휴지통에서 꺼낼 때 발생<br/></p>
+
+<p>트리거에서 외부 서비스 호출하는 Callout을 할 때는 비동기로 실행해야 합니다. <br/>
+비동기 Callout을 만들려면 @future Method 와 같은 비동기 Apex를 사용하해야 합니다.</p>
+
+<h6 id="nbsp-1">&nbsp;</h6>
+
+<h4 id="bulk-triggers-대량-트리거">Bulk Triggers (대량 트리거)</h4>
+
+<p>모든 트리거는 기본적으로 대량 트리거이며 한 번에 여러 레코드를 처리 할 수 있습니다.<br/>
+한 번에 두 개 이상의 레코드를 처리하도록 항상 계획해야합니다.</p>
+
+<ul>
+<li>Data import</li>
+<li>Lightning Platform Bulk API calls</li>
+<li>Mass actions, such as record owner changes and deletes</li>
+<li>Recursive Apex methods and triggers that invoke bulk DML statements</li>
+</ul>
+
+<pre><code class="language-c#">trigger myAccountTrigger on Account (before insert, before update) {
+    // Your code here
+}
+</code></pre>
+
+<p>Apex 트리거가 성공적으로 완료되면 모든 데이터베이스 변경 사항이 자동으로 커밋됩니다.
+Apex 트리거가 성공적으로 완료되지 않으면 데이터베이스에 대한 모든 변경 사항이 롤백됩니다.</p>
+
+<h6 id="nbsp-2">&nbsp;</h6>
+
+<h4 id="trigger-context-variables-트리거-문맥-변수">Trigger Context Variables (트리거 문맥 변수)</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th align="left">Usage</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>isExecuting</td>
+<td align="left">Returns true if the current context for the Apex code is a trigger, not a Visualforce page, a Web service, or an executeanonymous() API call.</td>
+</tr>
+
+<tr>
+<td>isInsert</td>
+<td align="left">Returns true if this trigger was fired due to an insert operation, from the Salesforce user interface, Apex, or the API.</td>
+</tr>
+
+<tr>
+<td>isUpdate</td>
+<td align="left">Returns true if this trigger was fired due to an update operation, from the Salesforce user interface, Apex, or the API.</td>
+</tr>
+
+<tr>
+<td>isDelete</td>
+<td align="left">Returns true if this trigger was fired due to a delete operation, from the Salesforce user interface, Apex, or the API.</td>
+</tr>
+
+<tr>
+<td>isBefore</td>
+<td align="left">Returns true if this trigger was fired before any record was saved.</td>
+</tr>
+
+<tr>
+<td>isAfter</td>
+<td align="left">Returns true if this trigger was fired after all records were saved.</td>
+</tr>
+
+<tr>
+<td>isUndelete</td>
+<td align="left">Returns true if this trigger was fired after a record is recovered from the Recycle Bin (that is, after an undelete operation from the Salesforce user interface, Apex, or the API.)</td>
+</tr>
+
+<tr>
+<td>new</td>
+<td align="left">Returns a list of the new versions of the sObject records.<br/> This sObject list is only available in insert, update, and undelete triggers, and the records can only be modified in before triggers.</td>
+</tr>
+
+<tr>
+<td>newMap</td>
+<td align="left">A map of IDs to the new versions of the sObject records.<br/> This map is only available in before update, after insert, after update, and after undeletetriggers.</td>
+</tr>
+
+<tr>
+<td>old</td>
+<td align="left">Returns a list of the old versions of the sObject records.<br/>This sObject list is only available in update and delete triggers.</td>
+</tr>
+
+<tr>
+<td>oldMap</td>
+<td align="left">A map of IDs to the old versions of the sObject records. his map is only available in update and delete triggers.</td>
+</tr>
+
+<tr>
+<td>size</td>
+<td align="left">The total number of records in a trigger invocation, both old and new.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-c#">trigger myAccountTrigger on Account(before delete, before insert, before update,
+                                    after delete, after insert, after update) {
+if (Trigger.isBefore) {
+    if (Trigger.isDelete) {
+        // In a before deletetrigger, the trigger accesses the records that will be
+        // deleted with the Trigger.old list.
+        for (Account a : Trigger.old) {
+            if (a.name != 'okToDelete') {
+                a.addError('You can not delete this record!');
+            }
+        }
+    } else {
+    // Inbeforeinsertorbeforeupdate triggers, the trigger accesses the new records
+    // with the Trigger.new list.
+        for (Account a : Trigger.new) {
+            if (a.name == 'bad') {
+                a.name.addError('Bad name');
+            }
+    }
+    if (Trigger.isInsert) {
+        for (Account a : Trigger.new) {
+            System.assertEquals('xxx', a.accountNumber);
+            System.assertEquals('industry', a.industry);
+            System.assertEquals(100, a.numberofemployees);
+            System.assertEquals(100.0, a.annualrevenue);
+            a.accountNumber = 'yyy';
+        }
+// If the triggerisnot a beforetrigger, it must be an aftertrigger.
+} else {
+    if (Trigger.isInsert) {
+        List&lt;Contact&gt; contacts = new List&lt;Contact&gt;();
+        for (Account a : Trigger.new) {       
+            if(a.Name == 'makeContact') {
+                contacts.add(new Contact (LastName = a.Name, AccountId = a.Id));
+            }
+        }
+      insert contacts;
+    }
+  }
+}}}
+</code></pre>
+
+<h6 id="nbsp-3">&nbsp;</h6>
+
+<h4 id="context-variable-considerations-문맥-변수-고려사항">Context Variable Considerations (문맥 변수 고려사항)</h4>
+
+<ul>
+<li>trigger.new and trigger.old cannot be used in Apex DML operations.</li>
+<li>You can use an object to change its own field values using trigger.new, but only in before triggers. In all after triggers, trigger.new is not saved, so a runtime exception is thrown.</li>
+<li>trigger.old is always read-only.</li>
+<li>You cannot delete trigger.new.</li>
+</ul>
+
+<h6 id="nbsp-4">&nbsp;</h6>
+
+<h4 id="triggers-and-merge-statements">Triggers and Merge Statements</h4>
+
+<ul>
+<li>Merge 시 이벤트 순서
+
+<ol>
+<li>Before delete 트리거 실행</li>
+<li>Merge 작업으로 필요한 레코드 삭제, 새 레코드를 자식 레코드에 할당하고, 삭제 된 레코드에 MasterRecordId 필드를 설정</li>
+<li>After delete 트리거가 실행</li>
+<li>시스템은 마스터 레코드에 필요한 특정 갱신을 수행하고 일반 업데이트 트리거 적용</li>
+</ol></li>
+</ul>
+
+<h6 id="nbsp-5">&nbsp;</h6>
+
+<h4 id="trigger-exceptions-트리거-예외">Trigger Exceptions (트리거 예외)</h4>
+
+<p>트리거는 레코드 또는 필드에서 addError () 메서드를 호출하여 DML 작업이 발생하는 것을 방지하는 데 사용할 수 있습니다.
+insert, update 트리거의 Trigger.new 레코드 및 delete 트리거의 Trigger.old 레코드에서 사용되는 경우 사용자 지정 오류 메시지가 응용 프로그램 인터페이스에 표시되고 기록됩니다.</p>
+
+<h6 id="nbsp-6">&nbsp;</h6>
+
+<h4 id="trigger-and-bulk-request-best-practices">Trigger and Bulk Request Best Practices</h4>
+
+<pre><code class="language-c#">( flawed pattern )
+trigger MileageTrigger on Mileage__c (before insert, before update) {
+   User c = [SELECT Id FROM User WHERE mileageid__c = Trigger.new[0].id];
+}
+
+( flawed pattern )
+trigger MileageTrigger on Mileage__c (before insert, before update) {
+   for(mileage__c m : Trigger.new){
+      User c = [SELECT Id FROM user WHERE mileageid__c = m.Id];
+   }
+}
+
+( correct pattern )
+Trigger MileageTrigger on Mileage__c (before insert, before update) {
+   Set&lt;ID&gt; ids = Trigger.newMap.keySet();
+   List&lt;User&gt; c = [SELECT Id FROM user WHERE mileageid__c in:ids];
+}
+</code></pre>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/apex-trigger">Apex Trigger</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      <li>
+                          <a class="dkhome-link" href="http://www.dkbmc.com/" target="_blank" title="DKBMC 홈페이지" 
+                          style="background-image:url('https://DKBMC-Official.github.io//img/ico-cloud.png');"></a>
+                      </li>
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    
+
+</body>
+
+</html>
+
