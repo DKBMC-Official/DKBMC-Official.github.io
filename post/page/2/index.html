@@ -273,6 +273,21 @@
     
     <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
 
+    <script>
+       
+      $(".category-list li a").each(function(){
+        var thisTxt = $(this).text();
+        var hyphenLength = thisTxt.split("-").length - 1;
+        if(hyphenLength >= 2) {
+          var replaceTxt = "-";
+          for(var i=1; i <= hyphenLength; i++){
+            replaceTxt += thisTxt.split("-")[i] + " ";
+          }
+          $(this).text(replaceTxt);
+        }
+      });
+    </script>
+
     
 
 </body>
