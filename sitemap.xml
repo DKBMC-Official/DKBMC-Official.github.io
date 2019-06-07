@@ -3,6 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://DKBMC-Official.github.io/categories/</loc>
+    <lastmod>2019-06-07T14:53:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/categories/lc-front/</loc>
+    <lastmod>2019-06-07T14:53:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/</loc>
+    <lastmod>2019-06-07T14:53:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/post/salesforce/quick/</loc>
+    <lastmod>2019-06-07T14:53:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/</loc>
+    <lastmod>2019-06-07T14:53:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://DKBMC-Official.github.io/categories/apex-trigger/</loc>
     <lastmod>2019-05-29T10:35:20+09:00</lastmod>
     <priority>0</priority>
@@ -11,24 +40,6 @@
   <url>
     <loc>https://DKBMC-Official.github.io/post/salesforce/apex_trigger/</loc>
     <lastmod>2019-05-29T10:35:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://DKBMC-Official.github.io/categories/</loc>
-    <lastmod>2019-05-29T10:35:20+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://DKBMC-Official.github.io/post/</loc>
-    <lastmod>2019-05-29T10:35:20+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://DKBMC-Official.github.io/</loc>
-    <lastmod>2019-05-29T10:35:20+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
