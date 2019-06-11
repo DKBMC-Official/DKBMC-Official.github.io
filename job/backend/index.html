@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="범위 사용">
-    <meta name="author" content="[Yong-Jin]">
+    <meta name="description" content="3년 이상">
+    <meta name="author" content="DK BMC">
     <meta name="keywords" content="">
 
     <meta name="theme-color" content="#ffffff">
@@ -81,200 +81,124 @@
         
     </nav>
 
-
-    
-    
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
-      
-      <div class="container">
-        <div class="row">
-           <div class="col-lg-10 col-md-10">
-             <div class="post-heading">
-               <h1>SOQL 기본문법(04)</h1>
-               <h2 class="subheading" style="font-weight:200;font-size:2.25rem;">범위 사용</h2>
-               <hr class="small" style="border-color: #0085a1;"/>
-               <span class="post-preview_date"><b>Mon, May 27, 2019</b></span>
-               <span style="color:#fff;font-size: 1.65rem;">written by</span>
-                <a href="#" class="author">
-                <span>Yong-Jin</span>
-                </a>
-               
-             </div>
-           </div>
-        </div>
-      </div>
-    </header>
-    
-    <article class="content-line">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
-                  
-
-<!-- 게시글 내용 -->
-
-<h3 id="범위-사용">범위 사용</h3>
-
-<h6 id="nbsp">&nbsp;</h6>
-
-<h4 id="using-scope">USING SCOPE</h4>
-
-<table>
-<thead>
-<tr>
-<th>filterScope</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Delegated</td>
-<td align="left">Filter for records delegated to another user for action. <br/> For example, a query could filter for only delegated Task records.</td>
-</tr>
-
-<tr>
-<td>Everything</td>
-<td align="left">Filter for all records.</td>
-</tr>
-
-<tr>
-<td>Mine</td>
-<td align="left">Filter for records owned by the user running the query.</td>
-</tr>
-
-<tr>
-<td>MineAndMyGroups</td>
-<td align="left">Filter for records assigned to the user running the query and the user’s queues.</td>
-</tr>
-
-<tr>
-<td>My_Territory</td>
-<td align="left">Filter for records in the territory of the user running the query. <br/> This option is available if territory management is enabled for your organization.</td>
-</tr>
-
-<tr>
-<td>My_Team_Territory</td>
-<td align="left">Filter for records in the territory of the team of the user running the query. <br/> This option is available if territory management is enabled for your organization.</td>
-</tr>
-
-<tr>
-<td>Team</td>
-<td align="left">Filter for records assigned to a team, such as an Account team.</td>
-</tr>
-</tbody>
-</table>
-
-<pre><code class="language-sql">SELECT Id, Name 
-  FROM Account USINGSCOPE Mine
-</code></pre>
-
-<h6 id="nbsp-1">&nbsp;</h6>
-
-<h4 id="order-by">ORDER BY</h4>
-
-<pre><code class="language-sql">[ ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
-</code></pre>
-
-<pre><code class="language-sql">  SELECT Name
-    FROM Account
-ORDER BY Name DESCNULLSLAST
-
-  SELECT Id, CaseNumber, Account.Id, Account.Name
-    FROM Case
-ORDER BY Account.Name
-
-  SELECT Name
-    FROM Account
-   WHERE industry = 'media'
-ORDER BY BillingPostalCode ASCNULLSLASTLIMIT125
-</code></pre>
-
-<h6 id="nbsp-2">&nbsp;</h6>
-
-<h4 id="limit">LIMIT</h4>
-
-<pre><code class="language-sql">SELECT Name
-  FROM Account
- WHERE Industry = 'Media'LIMIT125
-</code></pre>
-
-<h6 id="nbsp-3">&nbsp;</h6>
-
-<h4 id="offset">OFFSET</h4>
-
-<pre><code class="language-sql">  SELECT Name
-    FROM Merchandise__c
-   WHERE Price__c &gt; 5.0
-ORDER BY Name
-   LIMIT 100
- OFF SET 10
-</code></pre>
-
-<h5 id="offset-사용시-고려-사항">OFFSET 사용시 고려 사항</h5>
-
-<blockquote>
-<ol>
-<li>The maximum offset is 2,000 rows. Requesting an offset greater than 2,000 results in a NUMBER_OUTSIDE_VALID_RANGE error.</li>
-<li>OFFSET is intended to be used in a top-level query, and is not allowed in most subqueries, so the following query is invalid and returns a MALFORMED_QUERY error:</li>
-</ol>
-</blockquote>
-
-<pre><code class="language-sql">( Error )
-  SELECT Name, Id
-    FROM Merchandise__c
-   WHERE Id IN
-    (
-         SELECT Id
-           FROM Discontinued_Merchandise__c
-          LIMIT 100
-        OFF SET 20
-    )
-ORDER BY Name
-
-( OK )
-  SELECT Name, Id
-    (
-        SELECT Name 
-          FROM Opportunity LIMIT10 OFFSET 2
-    )
-    FROM Account
-ORDER BY Name
-   LIMIT 1
-</code></pre>
-
-                  
-   
-
-
-                </div>
-            </div>
-          <span class="meta">
-          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
-          
-
-
-<div class="tag_wrap">
-<a href="/categories/soql">SOQL</a>
-
-</div>
-
-
-        </div>
-          </span>
+<div class="container job-container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
             
-        </div>
 
-        
-    </article>
-    <hr>
-    <script src="https://utteranc.es/client.js"
-    repo="DKBMC-Official/blog-comment"
-    issue-term="pathname"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-</script>
+<h1 id="백엔드-개발자를-모집합니다">백엔드 개발자를 모집합니다</h1>
+
+<hr />
+
+<p><br></p>
+
+<h2 id="백엔드-개발자는-이런-일을-합니다">백엔드 개발자는 이런 일을 합니다</h2>
+
+<h3 id="하는일-1">하는일 1</h3>
+
+<p>오프라인에서 발생하는 대용량의 결제·방문 데이터를 실시간으로 다루므로 효율적이면서도 정확한 구현이 중요합니다. 따라서 말단 서비스 및 도메인 영역별로 데이터를 분산 처리하는 동시에 논리적 부정합을 막기 위해 결과정합성을 사용하는 견고한 엔지니어링을 할 수 있습니다.</p>
+
+<h3 id="하는일-2">하는일 2</h3>
+
+<p>우리는 이용자가 마주하는 제품의 표피부터 이와 통신하는 백엔드 서버, 가장 아래의 데이터 구조까지 한 사람이 담당하는 종적 분업을 지향합니다. 따라서 첫 착수부터 배포, 그리고 그 이후의 연속적인 개선까지 책임감 있게 주도할 수 있습니다.</p>
+
+<h3 id="하는일-3">하는일 3</h3>
+
+<p>제품을 효율적으로 개발하려면 배포 시스템, 오픈 소스 라이브러리와 같은 도구의 생산성도 중요합니다. 자신이 맡은 프로젝트에 필요한 또 다른 작은 제품을 만들어 동료와 함께 사용하며 발전시키는 건 dkbmc에서 할 수 있는 재미있는 경험 중 하나입니다.</p>
+
+<p><br></p>
+
+<h2 id="지원-자격">지원 자격</h2>
+
+<ol>
+<li>다른 사람이 쓸 수 있는 프로그램을 직접 만들고 운영해 본 경험이 있는 분</li>
+<li>Python 사용 경험이 있는 분</li>
+<li>RDBMS 사용 경험이 있는 분 (PostgreSQL 우대)</li>
+<li>단위 테스트 작성 등에 대해 거부감이 없고 습관이 잡혀 있는 분</li>
+<li>(우대) 일본어와 한국어가 모두 가능하신 분</li>
+<li>(우대) 컴퓨터과학 분야에서 논문 발표 실적이 있으신 분</li>
+<li>(우대) 제품 개발에 React를 직접 적용해보신 분</li>
+<li>(우대) iOS / Android 애플리케이션 개발 경험이 있으신 분</li>
+<li>(우대) 마이크로서비스 아키텍처(MSA) 및 서비스 지향 아키텍처(SOA)에서의 개발 경험이 있으신 분</li>
+<li>(우대) 오픈소스 프로젝트에 기여 경험이 있으신 분</li>
+<li>(우대) 테스트 자동화, 빌드 자동화, 지속적 통합 등의 경험이 있으신 분</li>
+</ol>
+
+<p><br></p>
+
+<h2 id="근무-환경">근무 환경</h2>
+
+<ol>
+<li>근무 형태
+
+<ul>
+<li>정규직</li>
+</ul></li>
+<li>회사 위치
+
+<ul>
+<li>서울특별시 강남구 봉은사로 121 대종빌딩 2층</li>
+</ul></li>
+<li>급여 제도
+
+<ul>
+<li>연봉제, 매년 연봉 재협상</li>
+<li>급여는 매달 28일 지급</li>
+</ul></li>
+<li>휴가 제도
+
+<ul>
+<li>연차휴가는 근로기준법에 준하여 발생</li>
+<li>3년 이상 근속 시 장기 근속 특별휴가 지급(3년~5년 재직 시 5일, 5년 이상은 10일)</li>
+<li>결혼, 조의, 환갑 및 고희, 출산, 졸업식에 유급 휴가</li>
+<li>월 1일 무급 생리 휴가</li>
+<li>출산 휴가 및 임산부 태아검진, 육아기 근로 단축 시행</li>
+<li>3일 이상 통원 및 입원이 필요한 경우, 연간 2주까지 유급 병가 휴가 사용 가능</li>
+</ul></li>
+<li>근무 시간
+
+<ul>
+<li>1일 8시간, 주 40시간 근무</li>
+<li>연장, 야간 및 휴일근로 수당 지급</li>
+<li>필요한 경우 CTO 재량 특별휴가 지급</li>
+<li>설날, 추석 연휴 전날 단축근무 및 명절선물(상품권) 지급</li>
+<li>인터넷이 가능한 환경이라면 회사 외 근무지에서 자유롭게 근무 가능(해외 / 국내 무관)</li>
+<li>업무 시간은 개인에 맞게 탄력적으로 조정</li>
+<li>도도데이 제도: 매월 급여지급일이 포함된 주의 금요일은 오전 근무만 시행</li>
+</ul></li>
+</ol>
+
+<p><br></p>
+
+<h2 id="지원-방법">지원 방법</h2>
+
+<p>자유 형식의 이력서(사진 및 성별은 뺄 것)와 경력 기술서, GitHub 저장소, 포트폴리오 등 자신을 보여줄 수 있는 자료를 <a href="mailto:creators.recruit@dkbmc.com">creators.recruit@dkbmc.com</a>으로 보내주세요. 메일에 지원하려는 직군을 정확히 기재해주세요.</p>
+
+<p><br></p>
+
+<h2 id="채용-절차">채용 절차</h2>
+
+<h3 id="서류전형">서류전형</h3>
+
+<p>보내주신 이력서와 경력 기술서, Github 저장소, 포트폴리오 등을 자세히 검토합니다.</p>
+
+<h3 id="실무진-면접">실무진 면접</h3>
+
+<p>dkbmc에 방문하셔서 실무진과 만나 프로그래밍 경험에 관한 질문과 답변을 나눕니다. 이 과정에서 dkbmc의 인재상에 적합한지, 동료와 잘 협업할 수 있을지, 충분한 수준의 지식을 겸비하고 있는지를 평가합니다.</p>
+
+<h3 id="경영진-면접">경영진 면접</h3>
+
+<p>dkbmc의 임원과 만나 근무 조건을 협의합니다. 이 과정에서 서로가 함께 만족할 수 있는 지점을 탐색합니다.</p>
+
+<p><br></p>
+
+<h2 id="문의">문의</h2>
+
+<p><a href="mailto:recruit@dcbmc.com">recruit@dcbmc.com</a>으로 궁금한 점을 편하게 문의 주세요.</p>
+
+        </div>
+    </div>
+</div>
     <hr>
     
     <footer>
@@ -357,4 +281,3 @@ ORDER BY Name
 </body>
 
 </html>
-

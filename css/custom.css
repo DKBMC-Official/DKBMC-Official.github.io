@@ -529,6 +529,130 @@ table tbody tr:nth-child(even), table tbody tr:nth-child(even) {
     background-color: #f7f7f7;
 }
 
+
+/* 채용정보 메인 */
+.job-container hr {
+    border-color: #0085a1;
+    border-width: 3px;
+}
+.job-main-container {
+    display: none;
+}
+.job-container {
+    margin-top: 100px;
+}
+.job-container p {
+    color: #666;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.75;
+}
+.job-container .job-col {
+    margin-bottom: 50px;
+}
+.job-container h2 {
+    margin-bottom: 25px;
+}
+.job-container .job-col .job-col__txt {
+    white-space: pre-line;
+}
+.job-container ul {
+    padding-left: 0;
+}
+.job-container ol {
+    padding-left: 15px;
+}
+
+.job-container li {
+    font-size: 18px;
+    line-height: 1.65;
+    font-weight: normal;
+    color: #666;
+}
+.job-container li h2,.job-container li h3 {
+    color: #404040;
+}
+.job-container.job-main-container li {
+    list-style: none;
+}
+
+.job-container table tbody tr td {
+    padding: 0;
+}
+.job-container table a {
+    display: block;
+    color: #0085a1;
+    text-decoration: underline;
+    padding: 10px 20px;
+}
+.job-container a {
+    color: #0085a1;
+}
+.job-container ol > li > ul {
+    margin-bottom: 15px;
+}
+
+.job-benefits {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 0;
+    width: 33.333%;
+    float: left;
+    padding-right: 15px;
+}
+.job-benefits:nth-of-type(3n+1) {
+    clear: both;
+}
+.job-benefits__wrap {
+    border: 1px solid #eaeaea;
+    padding: 30px;
+    /* max-height: 235px; */
+    min-height: 235px;
+    background-color: #fff;
+}
+.job-benefits__wrap > h4 {
+    margin-bottom: 8px;
+}
+.job-benefits__wrap > p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+.job-benefits__img {
+    max-width: 60px;
+}
+.job-benefits__line {
+    width: 20px;
+    height: 3px;
+    background-color: #0085a1;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+@media all and (min-width: 1200px) {
+    .job-container .job-col .job-col__txt {
+        padding-left: 15px;
+    }
+    .job-container ul, .job-container ol {
+        padding-left: 15px;
+    }
+    .job-container h2 {
+        /* margin-bottom: 45px; */
+    }
+}
+@media all and (max-width: 400px) {
+    .job-container table a {
+        padding: 10px;
+    }
+    .job-container table td:not(.job-name) {
+        text-align: center;
+    }
+}
+
+.job-main-container hr {
+    margin-bottom: 30px;
+}
 .recent-post {
     border-bottom: 1px solid #f1f1f1;
     font-weight: 600;

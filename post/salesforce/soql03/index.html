@@ -419,6 +419,19 @@
     
     <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
 
+    <script>
+        var headTitle = $(".post-heading h1").text();
+        var $jobCon = $(".job-main-container");
+        if(headTitle === "Jobs") {
+          $(".intro-header.post-header.list-header").remove();
+          $(".list-container").remove();
+          $jobCon.show();
+        }
+        else {
+          $jobCon.remove();
+        }
+    </script>
+
     
     <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
 
