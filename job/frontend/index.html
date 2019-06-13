@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="2년 이상">
+    <meta name="description" content="경력">
     <meta name="author" content="DK BMC">
     <meta name="keywords" content="">
 
@@ -182,7 +182,7 @@
 
 <h2 id="지원-방법">지원 방법</h2>
 
-<p>자유 형식의 이력서(사진 및 성별은 뺄 것)와 경력 기술서, GitHub 저장소, 포트폴리오 등 자신을 보여줄 수 있는 자료를 <a href="mailto:recruit@dcbmc.com">recruit@dcbmc.com</a>으로 보내주세요. 메일에 지원하려는 직군을 정확히 기재해주세요.</p>
+<p>자유 형식의 이력서와 경력 기술서, GitHub 저장소, 포트폴리오 등 자신을 보여줄 수 있는 자료를 <a href="mailto:recruit@dcbmc.com">recruit@dcbmc.com</a>으로 보내주세요. 메일에 지원하려는 직군을 정확히 기재해주세요.</p>
 
 <p><br></p>
 
@@ -282,6 +282,14 @@
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

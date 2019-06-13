@@ -29,17 +29,7 @@ SELECT CALENDAR_YEAR(CreatedDate), SUM(Amount) FROM Opportunity GROUP BY CALENDA
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql07/</guid>
       <description>Aggregate Functions 분석을 위해 보고서를 생성하려면 SOQL 쿼리의 GROUP BY 절에 집계 함수를 사용합니다. 집계 함수에는 AVG (), COUNT (), MIN (), MAX (), SUM () 등이 있습니다.
-   Aggregate Function Description     AVG() SELECT CampaignId, AVG(Amount)  FROM Opportunity  GROUP BY CampaignId   COUNT() and COUNT(fieldName) SELECT COUNT()  FROM Account  WHERE Name LIKE&amp;rsquo;a%’   SELECT COUNT(Id)  FROM Account  WHERE Name LIKE&amp;rsquo;a%’  GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</description>
-    </item>
-    
-    <item>
-      <title>SOQL 기본문법(06)</title>
-      <link>https://DKBMC-Official.github.io/post/salesforce/soql06/</link>
-      <pubDate>Tue, 28 May 2019 11:12:45 +0900</pubDate>
-      
-      <guid>https://DKBMC-Official.github.io/post/salesforce/soql06/</guid>
-      <description>HAVING 집계 함수가 반환하는 결과를 필터링
-SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100 SELECT Name, Count(Id) FROM Account GROUP BY Name HAVING Count(Id) &amp;gt; 1  &amp;nbsp; HAVING을 사용할 때의 고려 사항 ( OK ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and LeadSource &amp;gt; &#39;Phone&#39; ( Error ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and City LIKE&#39;San%&#39;  &amp;nbsp; TYPEOF (BATA) TYPEOF는 다형성 관계를 포함하는 데이터를 쿼리 할 때 SOQL 쿼리의 SELECT 문에서 사용할 수있는 선택적 절입니다.</description>
+   Aggregate Function Description     AVG() SELECT CampaignId, AVG(Amount)  FROM Opportunity  GROUP BY CampaignId   COUNT() and COUNT(fieldName) SELECT COUNT()  FROM Account  WHERE Name LIKE &amp;lsquo;a%’   SELECT COUNT(Id)  FROM Account  WHERE Name LIKE &amp;lsquo;a%’  GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</description>
     </item>
     
     <item>
@@ -84,7 +74,7 @@ SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) 
       <pubDate>Fri, 24 May 2019 14:17:04 +0900</pubDate>
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql01/</guid>
-      <description>SOQL SELECT 구문 SELECT fieldList [subquery][...] [TYPEOF typeOfField whenExpression[...] elseExpression END][...] FROM objectType[,...] [USINGSCOPE filterScope] [WHERE conditionExpression] [WITH [DATA CATEGORY] filteringExpression] [GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)} [HAVING havingConditionExpression] ] [ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ] [LIMIT numberOfRowsToReturn] [OFF SET numberOfRowsToSkip] [FOR {VIEW | REFERENCE}[,...] ] [ UPDATE {TRACKING|VIEWSTAT}[,...] ]  &amp;nbsp; SOQL 쿼리에서 null 사용 SELECT AccountId FROM Event WHERE ActivityDate != null SELECT Id FROM Case WHERE Contact.</description>
+      <description> SOQL SELECT 구문 SELECT fieldList [subquery][...] [TYPEOF typeOfField whenExpression[...] elseExpression END][...] FROM objectType[,...] [USINGSCOPE filterScope] [WHERE conditionExpression] [WITH [DATA CATEGORY] filteringExpression] [GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)} [HAVING havingConditionExpression] ] [ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ] [LIMIT numberOfRowsToReturn] [OFFSET numberOfRowsToSkip] [FOR {VIEW | REFERENCE}[,...] ] [ UPDATE {TRACKING|VIEWSTAT}[,...] ]  &amp;nbsp; SOQL 쿼리에서 null 사용 SELECT AccountId FROM Event WHERE ActivityDate != null SELECT Id FROM Case WHERE Contact.LastName = null  &amp;nbsp; Boolean(참/거짓) 필드 필터링 WHERE BooleanField = TRUE WHERE BooleanField = FALSE  </description>
     </item>
     
   </channel>

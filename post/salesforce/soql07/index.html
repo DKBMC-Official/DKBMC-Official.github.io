@@ -84,7 +84,7 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
@@ -134,7 +134,7 @@
 
 <tr>
 <td>COUNT() and COUNT(fieldName)</td>
-<td align="left">SELECT COUNT() <br/> FROM Account <br/> WHERE Name LIKE&rsquo;a%’ <br/> <br/> SELECT COUNT(Id) <br/> FROM Account <br/> WHERE Name LIKE&rsquo;a%’ <br/> GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</td>
+<td align="left">SELECT COUNT() <br/> FROM Account <br/> WHERE Name LIKE &lsquo;a%’ <br/> <br/> SELECT COUNT(Id) <br/> FROM Account <br/> WHERE Name LIKE &lsquo;a%’ <br/> GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</td>
 </tr>
 
 <tr>
@@ -562,6 +562,14 @@ SELECT MAX(CreatedDate)
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

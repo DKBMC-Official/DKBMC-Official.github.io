@@ -84,7 +84,7 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
@@ -208,7 +208,7 @@ SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes ('AAA;BBB','CCC')
 <tr>
 <td>LIKE</td>
 <td align="left">Like</td>
-<td align="left">SELECT AccountId, FirstName, lastname <br/>FROM Contact <br/> WHERE lastname LIKE&rsquo;appl%&rsquo;</td>
+<td align="left">SELECT AccountId, FirstName, lastname <br/>FROM Contact <br/> WHERE lastname LIKE &lsquo;appl%&rsquo;</td>
 </tr>
 
 <tr>
@@ -370,6 +370,14 @@ SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c includes ('AAA;BBB','CCC')
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

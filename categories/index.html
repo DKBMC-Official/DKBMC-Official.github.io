@@ -107,11 +107,13 @@
           <ul>
             
             
-            <li><a href="/categories/soql">Soql</a> 8</li>
+            <li><a href="/categories/soql">Soql</a> 7</li>
             
             <li><a href="/categories/apex-trigger">Apex-Trigger</a> 1</li>
             
             <li><a href="/categories/lc-front">Lc-Front</a> 1</li>
+            
+            <li><a href="/categories/sqol">Sqol</a> 1</li>
             
           </ul>
         </div>
@@ -191,6 +193,14 @@
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

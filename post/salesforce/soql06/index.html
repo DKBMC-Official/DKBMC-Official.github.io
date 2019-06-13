@@ -84,13 +84,13 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
            <div class="col-lg-10 col-md-10">
              <div class="post-heading">
-               <h1>SOQL 기본문법(06)</h1>
+               <h1>SQOL 기본문법(06)</h1>
                <h2 class="subheading" style="font-weight:200;font-size:2.25rem;">HAVING</h2>
                <hr class="small" style="border-color: #0085a1;"/>
                <span class="post-preview_date"><b>Tue, May 28, 2019</b></span>
@@ -143,7 +143,7 @@ GROUP BY LeadSource
   SELECT LeadSource, COUNT(Name)
     FROM Lead
 GROUP BY LeadSource
-  HAVING COUNT(Name) &gt; 100and City LIKE'San%'
+  HAVING COUNT(Name) &gt; 100and City LIKE 'San%'
 </code></pre>
 
 <h6 id="nbsp-1">&nbsp;</h6>
@@ -282,7 +282,7 @@ sObject 레코드가 업데이트되는 동안 해당 레코드를 잠글 수 �
 
 
 <div class="tag_wrap">
-<a href="/categories/soql">SOQL</a>
+<a href="/categories/sqol">SQOL</a>
 
 </div>
 
@@ -375,6 +375,14 @@ sObject 레코드가 업데이트되는 동안 해당 레코드를 잠글 수 �
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

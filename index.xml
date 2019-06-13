@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©DKBMC. All rights reserved. Powered by GitHub Pages.</copyright>
-    <lastBuildDate>Wed, 12 Jun 2019 09:45:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 14:40:08 +0900</lastBuildDate>
     
 	<atom:link href="https://DKBMC-Official.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>풀스택 개발자</title>
+      <link>https://DKBMC-Official.github.io/job/fullstack/</link>
+      <pubDate>Thu, 13 Jun 2019 14:40:08 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/job/fullstack/</guid>
+      <description>&amp;hellip;를 모집합니다 
+&amp;hellip;는 이런 일을 합니다 하는일 1 오프라인에서 발생하는 대용량의 결제·방문 데이터를 실시간으로 다루므로 효율적이면서도 정확한 구현이 중요합니다. 따라서 말단 서비스 및 도메인 영역별로 데이터를 분산 처리하는 동시에 논리적 부정합을 막기 위해 결과정합성을 사용하는 견고한 엔지니어링을 할 수 있습니다.
+하는일 2 우리는 이용자가 마주하는 제품의 표피부터 이와 통신하는 백엔드 서버, 가장 아래의 데이터 구조까지 한 사람이 담당하는 종적 분업을 지향합니다. 따라서 첫 착수부터 배포, 그리고 그 이후의 연속적인 개선까지 책임감 있게 주도할 수 있습니다.</description>
+    </item>
     
     <item>
       <title>백엔드 개발자</title>
@@ -18,8 +29,8 @@
       <pubDate>Wed, 12 Jun 2019 09:45:00 +0900</pubDate>
       
       <guid>https://DKBMC-Official.github.io/job/backend/</guid>
-      <description>&amp;hellip;를 모집합니다 
-&amp;hellip;는 이런 일을 합니다 하는일 1 오프라인에서 발생하는 대용량의 결제·방문 데이터를 실시간으로 다루므로 효율적이면서도 정확한 구현이 중요합니다. 따라서 말단 서비스 및 도메인 영역별로 데이터를 분산 처리하는 동시에 논리적 부정합을 막기 위해 결과정합성을 사용하는 견고한 엔지니어링을 할 수 있습니다.
+      <description>백엔드 개발자를 모집합니다 
+백엔드 개발자는 이런 일을 합니다 하는일 1 오프라인에서 발생하는 대용량의 결제·방문 데이터를 실시간으로 다루므로 효율적이면서도 정확한 구현이 중요합니다. 따라서 말단 서비스 및 도메인 영역별로 데이터를 분산 처리하는 동시에 논리적 부정합을 막기 위해 결과정합성을 사용하는 견고한 엔지니어링을 할 수 있습니다.
 하는일 2 우리는 이용자가 마주하는 제품의 표피부터 이와 통신하는 백엔드 서버, 가장 아래의 데이터 구조까지 한 사람이 담당하는 종적 분업을 지향합니다. 따라서 첫 착수부터 배포, 그리고 그 이후의 연속적인 개선까지 책임감 있게 주도할 수 있습니다.</description>
     </item>
     
@@ -71,17 +82,17 @@ SELECT CALENDAR_YEAR(CreatedDate), SUM(Amount) FROM Opportunity GROUP BY CALENDA
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql07/</guid>
       <description>Aggregate Functions 분석을 위해 보고서를 생성하려면 SOQL 쿼리의 GROUP BY 절에 집계 함수를 사용합니다. 집계 함수에는 AVG (), COUNT (), MIN (), MAX (), SUM () 등이 있습니다.
-   Aggregate Function Description     AVG() SELECT CampaignId, AVG(Amount)  FROM Opportunity  GROUP BY CampaignId   COUNT() and COUNT(fieldName) SELECT COUNT()  FROM Account  WHERE Name LIKE&amp;rsquo;a%’   SELECT COUNT(Id)  FROM Account  WHERE Name LIKE&amp;rsquo;a%’  GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</description>
+   Aggregate Function Description     AVG() SELECT CampaignId, AVG(Amount)  FROM Opportunity  GROUP BY CampaignId   COUNT() and COUNT(fieldName) SELECT COUNT()  FROM Account  WHERE Name LIKE &amp;lsquo;a%’   SELECT COUNT(Id)  FROM Account  WHERE Name LIKE &amp;lsquo;a%’  GROUP BY 절을 사용하는 경우 COUNT () 대신 COUNT (fieldName)를 사용하십시오.</description>
     </item>
     
     <item>
-      <title>SOQL 기본문법(06)</title>
+      <title>SQOL 기본문법(06)</title>
       <link>https://DKBMC-Official.github.io/post/salesforce/soql06/</link>
       <pubDate>Tue, 28 May 2019 11:12:45 +0900</pubDate>
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql06/</guid>
       <description>HAVING 집계 함수가 반환하는 결과를 필터링
-SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100 SELECT Name, Count(Id) FROM Account GROUP BY Name HAVING Count(Id) &amp;gt; 1  &amp;nbsp; HAVING을 사용할 때의 고려 사항 ( OK ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and LeadSource &amp;gt; &#39;Phone&#39; ( Error ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and City LIKE&#39;San%&#39;  &amp;nbsp; TYPEOF (BATA) TYPEOF는 다형성 관계를 포함하는 데이터를 쿼리 할 때 SOQL 쿼리의 SELECT 문에서 사용할 수있는 선택적 절입니다.</description>
+SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100 SELECT Name, Count(Id) FROM Account GROUP BY Name HAVING Count(Id) &amp;gt; 1  &amp;nbsp; HAVING을 사용할 때의 고려 사항 ( OK ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and LeadSource &amp;gt; &#39;Phone&#39; ( Error ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and City LIKE &#39;San%&#39;  &amp;nbsp; TYPEOF (BATA) TYPEOF는 다형성 관계를 포함하는 데이터를 쿼리 할 때 SOQL 쿼리의 SELECT 문에서 사용할 수있는 선택적 절입니다.</description>
     </item>
     
     <item>
@@ -126,7 +137,7 @@ SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) 
       <pubDate>Fri, 24 May 2019 14:17:04 +0900</pubDate>
       
       <guid>https://DKBMC-Official.github.io/post/salesforce/soql01/</guid>
-      <description>SOQL SELECT 구문 SELECT fieldList [subquery][...] [TYPEOF typeOfField whenExpression[...] elseExpression END][...] FROM objectType[,...] [USINGSCOPE filterScope] [WHERE conditionExpression] [WITH [DATA CATEGORY] filteringExpression] [GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)} [HAVING havingConditionExpression] ] [ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ] [LIMIT numberOfRowsToReturn] [OFF SET numberOfRowsToSkip] [FOR {VIEW | REFERENCE}[,...] ] [ UPDATE {TRACKING|VIEWSTAT}[,...] ]  &amp;nbsp; SOQL 쿼리에서 null 사용 SELECT AccountId FROM Event WHERE ActivityDate != null SELECT Id FROM Case WHERE Contact.</description>
+      <description> SOQL SELECT 구문 SELECT fieldList [subquery][...] [TYPEOF typeOfField whenExpression[...] elseExpression END][...] FROM objectType[,...] [USINGSCOPE filterScope] [WHERE conditionExpression] [WITH [DATA CATEGORY] filteringExpression] [GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)} [HAVING havingConditionExpression] ] [ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ] [LIMIT numberOfRowsToReturn] [OFFSET numberOfRowsToSkip] [FOR {VIEW | REFERENCE}[,...] ] [ UPDATE {TRACKING|VIEWSTAT}[,...] ]  &amp;nbsp; SOQL 쿼리에서 null 사용 SELECT AccountId FROM Event WHERE ActivityDate != null SELECT Id FROM Case WHERE Contact.LastName = null  &amp;nbsp; Boolean(참/거짓) 필드 필터링 WHERE BooleanField = TRUE WHERE BooleanField = FALSE  </description>
     </item>
     
   </channel>

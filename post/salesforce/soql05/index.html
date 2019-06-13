@@ -84,7 +84,7 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
@@ -735,6 +735,14 @@ GROUP BY CUBE (Type, BillingCountry)
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

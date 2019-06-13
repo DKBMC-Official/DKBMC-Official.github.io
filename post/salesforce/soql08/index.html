@@ -84,7 +84,7 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
@@ -327,7 +327,7 @@ SELECT Name,
 
 SELECT Id, FirstName__c, Mother_of_Child__r.FirstName__c
   FROM Daughter__c
- WHERE Mother_of_Child__r.LastName__c LIKE'C%'
+ WHERE Mother_of_Child__r.LastName__c LIKE 'C%'
 
 SELECT LastName__c,
     (
@@ -351,7 +351,7 @@ SELECT Id, Name,
       FROM Contacts
     )
   FROM Account
- WHERE Name like 'Acme%'
+ WHERE Name LIKE 'Acme%'
 </code></pre>
 
                   
@@ -459,6 +459,14 @@ SELECT Id, Name,
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

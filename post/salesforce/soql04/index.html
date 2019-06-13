@@ -84,7 +84,7 @@
 
     
     
-    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-bg2-1.jpg');">
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
       
       <div class="container">
         <div class="row">
@@ -208,7 +208,7 @@ ORDER BY BillingPostalCode ASCNULLSLASTLIMIT125
    WHERE Price__c &gt; 5.0
 ORDER BY Name
    LIMIT 100
- OFF SET 10
+  OFFSET 10
 </code></pre>
 
 <h5 id="offset-사용시-고려-사항">OFFSET 사용시 고려 사항</h5>
@@ -348,6 +348,14 @@ ORDER BY Name
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

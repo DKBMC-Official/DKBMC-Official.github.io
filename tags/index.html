@@ -187,6 +187,14 @@
           $(this).text(replaceTxt);
         }
       });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
+        }
+      });
     </script>
 
     

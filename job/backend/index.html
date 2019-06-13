@@ -88,13 +88,13 @@
 
 <!-- 채용관련 내용 작성 -->
 
-<h1 id="를-모집합니다">&hellip;를 모집합니다</h1>
+<h1 id="백엔드-개발자를-모집합니다">백엔드 개발자를 모집합니다</h1>
 
 <hr />
 
 <p><br></p>
 
-<h2 id="는-이런-일을-합니다">&hellip;는 이런 일을 합니다</h2>
+<h2 id="백엔드-개발자는-이런-일을-합니다">백엔드 개발자는 이런 일을 합니다</h2>
 
 <h3 id="하는일-1">하는일 1</h3>
 
@@ -182,7 +182,7 @@
 
 <h2 id="지원-방법">지원 방법</h2>
 
-<p>자유 형식의 이력서(사진 및 성별은 뺄 것)와 경력 기술서, GitHub 저장소, 포트폴리오 등 자신을 보여줄 수 있는 자료를 <a href="mailto:recruit@dcbmc.com">recruit@dcbmc.com</a>으로 보내주세요. 메일에 지원하려는 직군을 정확히 기재해주세요.</p>
+<p>자유 형식의 이력서와 경력 기술서, GitHub 저장소, 포트폴리오 등 자신을 보여줄 수 있는 자료를 <a href="mailto:recruit@dcbmc.com">recruit@dcbmc.com</a>으로 보내주세요. 메일에 지원하려는 직군을 정확히 기재해주세요.</p>
 
 <p><br></p>
 
@@ -282,6 +282,14 @@
             replaceTxt += thisTxt.split("-")[i] + " ";
           }
           $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
         }
       });
     </script>

@@ -4,14 +4,19 @@
   
   <url>
     <loc>https://DKBMC-Official.github.io/job/</loc>
-    <lastmod>2019-06-12T09:45:00+09:00</lastmod>
+    <lastmod>2019-06-13T14:40:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://DKBMC-Official.github.io/</loc>
-    <lastmod>2019-06-12T09:45:00+09:00</lastmod>
+    <lastmod>2019-06-13T14:40:08+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/job/fullstack/</loc>
+    <lastmod>2019-06-13T14:40:08+09:00</lastmod>
   </url>
   
   <url>
@@ -72,6 +77,12 @@
   <url>
     <loc>https://DKBMC-Official.github.io/post/salesforce/soql07/</loc>
     <lastmod>2019-05-28T13:09:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://DKBMC-Official.github.io/categories/sqol/</loc>
+    <lastmod>2019-05-28T11:12:45+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
