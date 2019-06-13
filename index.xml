@@ -86,7 +86,7 @@ SELECT CALENDAR_YEAR(CreatedDate), SUM(Amount) FROM Opportunity GROUP BY CALENDA
     </item>
     
     <item>
-      <title>SQOL 기본문법(06)</title>
+      <title>SOQL 기본문법(06)</title>
       <link>https://DKBMC-Official.github.io/post/salesforce/soql06/</link>
       <pubDate>Tue, 28 May 2019 11:12:45 +0900</pubDate>
       

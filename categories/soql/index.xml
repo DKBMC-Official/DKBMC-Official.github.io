@@ -33,6 +33,16 @@ SELECT CALENDAR_YEAR(CreatedDate), SUM(Amount) FROM Opportunity GROUP BY CALENDA
     </item>
     
     <item>
+      <title>SOQL 기본문법(06)</title>
+      <link>https://DKBMC-Official.github.io/post/salesforce/soql06/</link>
+      <pubDate>Tue, 28 May 2019 11:12:45 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/salesforce/soql06/</guid>
+      <description>HAVING 집계 함수가 반환하는 결과를 필터링
+SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100 SELECT Name, Count(Id) FROM Account GROUP BY Name HAVING Count(Id) &amp;gt; 1  &amp;nbsp; HAVING을 사용할 때의 고려 사항 ( OK ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and LeadSource &amp;gt; &#39;Phone&#39; ( Error ) SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) &amp;gt; 100and City LIKE &#39;San%&#39;  &amp;nbsp; TYPEOF (BATA) TYPEOF는 다형성 관계를 포함하는 데이터를 쿼리 할 때 SOQL 쿼리의 SELECT 문에서 사용할 수있는 선택적 절입니다.</description>
+    </item>
+    
+    <item>
       <title>SOQL 기본문법(05)</title>
       <link>https://DKBMC-Official.github.io/post/salesforce/soql05/</link>
       <pubDate>Mon, 27 May 2019 13:09:57 +0900</pubDate>
