@@ -357,9 +357,10 @@ sObject 레코드가 업데이트되는 동안 해당 레코드를 잠글 수 �
     <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
 
     <script>
-        var headTitle = $(".post-heading h1").text();
+        
+        var headTitle = (window.location.pathname).split("/")[1];
         var $jobCon = $(".job-main-container");
-        if(headTitle === "Jobs") {
+        if(headTitle === "job") {
           $(".intro-header.post-header.list-header").remove();
           $(".list-container").remove();
           $jobCon.show();

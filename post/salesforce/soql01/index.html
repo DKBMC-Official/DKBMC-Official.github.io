@@ -117,33 +117,31 @@
 
 <h3 id="soql-select-구문">SOQL SELECT 구문</h3>
 
-<pre><code class="language-sql">SELECT fieldList [subquery][...]
-[TYPEOF typeOfField whenExpression[...] elseExpression END][...]
-FROM objectType[,...]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> fieldList [subquery][...]
+[TYPEOF typeOfField whenExpression[...] elseExpression <span style="color:#66d9ef">END</span>][...]
+<span style="color:#66d9ef">FROM</span> objectType[,...]
     [USINGSCOPE filterScope]
-[WHERE conditionExpression]
-[WITH [DATA CATEGORY] filteringExpression]
-[GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE (fieldSubtotalGroupByList)}
-    [HAVING havingConditionExpression] ]
-[ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
-[LIMIT numberOfRowsToReturn]
-[OFFSET numberOfRowsToSkip]
-[FOR {VIEW  | REFERENCE}[,...] ]
-      [ UPDATE {TRACKING|VIEWSTAT}[,...] ]
-</code></pre>
+[<span style="color:#66d9ef">WHERE</span> conditionExpression]
+[<span style="color:#66d9ef">WITH</span> [<span style="color:#66d9ef">DATA</span> CATEGORY] filteringExpression]
+[<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">{</span>fieldGroupByList<span style="color:#f92672">|</span><span style="color:#66d9ef">ROLLUP</span> (fieldSubtotalGroupByList)<span style="color:#f92672">|</span><span style="color:#66d9ef">CUBE</span> (fieldSubtotalGroupByList)<span style="color:#960050;background-color:#1e0010">}</span>
+    [<span style="color:#66d9ef">HAVING</span> havingConditionExpression] ]
+[<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> fieldOrderByList <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">ASC</span><span style="color:#f92672">|</span><span style="color:#66d9ef">DESC</span><span style="color:#960050;background-color:#1e0010">}</span> [NULLS <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">FIRST</span><span style="color:#f92672">|</span><span style="color:#66d9ef">LAST</span><span style="color:#960050;background-color:#1e0010">}</span>] ]
+[<span style="color:#66d9ef">LIMIT</span> numberOfRowsToReturn]
+[<span style="color:#66d9ef">OFFSET</span> numberOfRowsToSkip]
+[<span style="color:#66d9ef">FOR</span> <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#66d9ef">VIEW</span>  <span style="color:#f92672">|</span> REFERENCE<span style="color:#960050;background-color:#1e0010">}</span>[,...] ]
+      [ <span style="color:#66d9ef">UPDATE</span> <span style="color:#960050;background-color:#1e0010">{</span>TRACKING<span style="color:#f92672">|</span>VIEWSTAT<span style="color:#960050;background-color:#1e0010">}</span>[,...] ]</code></pre></div>
 
 <h6 id="nbsp">&nbsp;</h6>
 
 <h3 id="soql-쿼리에서-null-사용">SOQL 쿼리에서 null 사용</h3>
 
-<pre><code class="language-sql">SELECT AccountId
-  FROM Event
- WHERE ActivityDate != null
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> AccountId
+  <span style="color:#66d9ef">FROM</span> Event
+ <span style="color:#66d9ef">WHERE</span> ActivityDate <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>
 
-SELECT Id
-  FROM Case
- WHERE Contact.LastName = null
-</code></pre>
+<span style="color:#66d9ef">SELECT</span> Id
+  <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">Case</span>
+ <span style="color:#66d9ef">WHERE</span> Contact.LastName <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span></code></pre></div>
 
 <h6 id="nbsp-1">&nbsp;</h6>
 
@@ -238,9 +236,10 @@ WHERE BooleanField = FALSE
     <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
 
     <script>
-        var headTitle = $(".post-heading h1").text();
+        
+        var headTitle = (window.location.pathname).split("/")[1];
         var $jobCon = $(".job-main-container");
-        if(headTitle === "Jobs") {
+        if(headTitle === "job") {
           $(".intro-header.post-header.list-header").remove();
           $(".list-container").remove();
           $jobCon.show();

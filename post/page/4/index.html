@@ -211,8 +211,7 @@
 
 
 <section class="job-container job-main-container container">
-  <div class="row">
-
+    <div class="row">
     
     <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 job-col">
       <h2>1. 회사 소개</h2>
@@ -672,7 +671,7 @@
         
       </ul>
     </div>
-  </div>
+</div>
 </section>
 
     <hr style="margin-bottom: 0;margin-top: 60px;">
@@ -728,9 +727,10 @@
     <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
 
     <script>
-        var headTitle = $(".post-heading h1").text();
+        
+        var headTitle = (window.location.pathname).split("/")[1];
         var $jobCon = $(".job-main-container");
-        if(headTitle === "Jobs") {
+        if(headTitle === "job") {
           $(".intro-header.post-header.list-header").remove();
           $(".list-container").remove();
           $jobCon.show();
