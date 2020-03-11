@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LWC on Technology</title>
+    <link>https://DKBMC-Official.github.io/categories/lwc/</link>
+    <description>Recent content in LWC on Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©DKBMC. All rights reserved. Powered by GitHub Pages.</copyright>
+    <lastBuildDate>Tue, 17 Dec 2019 10:13:40 +0900</lastBuildDate>
+    
+	<atom:link href="https://DKBMC-Official.github.io/categories/lwc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lightning Web Component(3)</title>
+      <link>https://DKBMC-Official.github.io/post/lwc/lwc_basic3/</link>
+      <pubDate>Tue, 17 Dec 2019 10:13:40 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/lwc/lwc_basic3/</guid>
+      <description>1. JavaScript Property 이름 JavaScript에서의 property의 이름은 Camel Case, HTML에서의 property 이름은 Kebab Case로 써야합니다. 예를들어, JavaScript에서 property 이름이 itemName 이라면, HTML에서는 item-name으로 매핑됩니다.
+아래의 문자로 속성 이름을 시작하면 안됩니다.
+ on (예: onClick) aira (예: ariaDescribedby) data (예: dataProperty)  아래의 예약어를 속성 이름으로 사용하면 안됩니다.
+ slot part is  
+2. JavaScript에서 HTML 전역 속성에 접근 일부 HTML 전역 속성은 LWC Camel Case 및 Kebab Case 규칙을 따르지 않습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

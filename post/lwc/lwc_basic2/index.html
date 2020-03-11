@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="lcw 기초 정리">
+    <meta name="author" content="[고봉훈]">
+    <meta name="keywords" content="">
+
+    <meta name="google-site-verification" content="lhulumjBhO4KJFVB0xxfgsKfsLHOeQi5KLuqHGvJyfs" />
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>Lightning Web Component(2)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:2.25rem;">lcw 기초 정리</h2>
+               <hr class="small" style="border-color: #176db5;"/>
+               <span class="post-preview_date"><b>Tue, Dec 10, 2019</b></span>
+               <span style="color:#fff;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>고봉훈</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="1-템플릿-데이터-바인딩">1. 템플릿 데이터 바인딩</h3>
+
+<hr />
+
+<ol>
+<li>HTML Template에서는 <code>{property}</code>를 중괄호 안에 넣어야합니다.</li>
+<li>Aura 컴포넌트와 달리 LWC에서는 HTML Template 내의 property에 수식 적용이 불가능 합니다.</li>
+<li>속성 값을 계산을 해서 가져오려면 JavaScript의 getter, setter를 이용하시면 됩니다.<br/>
+<code>get property() { return ... }</code></li>
+<li>오브젝트로부터 property에 접근할 때는 기존과 같이 dot notation을 이용하시면 됩니다.<br/>
+<code>person.firstName</code> , <code>person[2].name['BongHoon']</code></li>
+</ol>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- test.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        제 이름은 {myName} 입니다.
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">/* test.js */</span>
+    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Test</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;고봉훈&#34;</span>;
+    }
+</code></pre></div>
+
+<blockquote>
+<p>참고 : 컴포넌트가 리렌더링되면 템플릿에 사용된 모든 표현식이 재평가됩니다.</p>
+</blockquote>
+
+<p><br/></p>
+
+<h3 id="2-입력값에-따른-데이터-바인딩">2. 입력값에 따른 데이터 바인딩</h3>
+
+<hr />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- inputTest.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">p</span>&gt;제 이름은 {myName} 입니다.&lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;<span style="color:#f92672">lightning-input</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Name&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">{myName}</span> <span style="color:#a6e22e">onchange</span><span style="color:#f92672">=</span><span style="color:#e6db74">{handleChange}</span>&gt;&lt;/<span style="color:#f92672">lightning-input</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">/* inputTest.js */</span>
+    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InputTest</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;고봉훈&#34;</span>;
+
+        <span style="color:#a6e22e">handleChange</span>(<span style="color:#a6e22e">e</span>) {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>;
+        }
+    }
+</code></pre></div>
+
+<p><br/></p>
+
+<h3 id="3-수식-대신-getter-사용">3. 수식 대신 Getter 사용</h3>
+
+<hr />
+
+<p>속성 값을 계산하려면 getter를 사용해야합니다.</p>
+
+<p>js에서 getter 정의<br/>
+<code>get propertyName() { ... }</code></p>
+
+<p>템플릿에서 getter에 접근<br/>
+<code>&lt;p&gt; {propertyName} &lt;/p&gt;</code></p>
+
+<p>ex) 입력된 이름을 대문자로 바꾸는 예제
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- upperCase.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">lightning-input</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;First Name&#34;</span> <span style="color:#a6e22e">onchange</span><span style="color:#f92672">=</span><span style="color:#e6db74">{handleChange}</span>&gt;&lt;/<span style="color:#f92672">lightning-input</span>&gt;
+        &lt;<span style="color:#f92672">lightning-input</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Last Name&#34;</span> <span style="color:#a6e22e">onchange</span><span style="color:#f92672">=</span><span style="color:#e6db74">{handleChange}</span>&gt;&lt;/<span style="color:#f92672">lightning-input</span>&gt;
+        &lt;<span style="color:#f92672">p</span>&gt;{uppercasedName}&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">/* upperCase.js */</span>
+    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UpperCase</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+
+        <span style="color:#a6e22e">handleChange</span>(<span style="color:#a6e22e">e</span>) {
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">name</span>;
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">field</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;firstName&#39;</span>) {
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>;
+            }
+            <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>;
+            }
+        }
+
+        <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">uppercasedName</span>() {
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>.<span style="color:#a6e22e">toUpperCase</span>();
+        }
+    }
+</code></pre></div>
+
+<blockquote>
+<p>이번 포스트에서 쓰인 <code>@track</code> 속성은 해당 컴포넌트의 Private 속성이면서 값이 바뀌면 템플릿으로 리렌더링되는 반응성 속성입니다.
+@track 속성을 쓰지 않고 위의 코드처럼 실행하면, 속성 자체의 값은 바뀌지만 템플릿에서 출력되는 값은 바뀌지 않게 됩니다.<br/>
+Public 속성이면서 반응성 속성인 <code>@api</code>도 있는데, 뒤에서 자세히 다뤄보겠습니다.</p>
+</blockquote>
+
+<p><br/></p>
+
+<h3 id="4-조건부-렌더링">4. 조건부 렌더링</h3>
+
+<hr />
+
+<p>조건부 렌더링을 하기 위해서는 &lt;template&gt; 안에 또 &lt;template&gt; 를 만들거나, 일반 태그를 추가하고 <code>if:true|false={...}</code> 를 넣어 주시면 됩니다.<br/>
+그러면 <code>if:true</code> 일 경우에는 {&hellip;} 값이 true일 경우 렌더링 되고, <code>if:false</code> 일 경우에는 {&hellip;} 값이 false일 경우 렌더링 됩니다.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- rendering.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">lightning-card</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;조건부 렌더링 Test&#34;</span> <span style="color:#a6e22e">icon-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom:custom14&#34;</span>&gt;
+            &lt;<span style="color:#f92672">lightning-input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Show Detail&#34;</span> <span style="color:#a6e22e">onchange</span><span style="color:#f92672">=</span><span style="color:#e6db74">{handleChange}</span>&gt;&lt;/<span style="color:#f92672">lightning-input</span>&gt;
+            &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">if:true</span><span style="color:#f92672">=</span><span style="color:#e6db74">{isVisible}</span>&gt;
+                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;slds-m-vertical_medium&#34;</span>&gt;
+                    SHOW!
+                &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;/<span style="color:#f92672">template</span>&gt;
+        &lt;/<span style="color:#f92672">lightning-card</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">/* rendering.js */</span>
+    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rendering</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">isVisible</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+
+        <span style="color:#a6e22e">handleChange</span>(<span style="color:#a6e22e">e</span>) {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isVisible</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">checked</span>;
+        }
+    }
+</code></pre></div>
+
+<p><br/></p>
+
+<h3 id="5-목록-반복-렌더링">5. 목록 반복 렌더링</h3>
+
+<hr />
+
+<p>반복 렌더링을 하는 방법은 <code>for:each</code>와 <code>iterator:iteratorName</code> 두 가지 방법이 있습니다.<br/>
+어떤 반복문을 사용하는지에 관계없이 <code>key</code> 값을 넣어서 고유 ID를 할당해 줘야합니다.<br/>
+목록이 변경되면 <code>key</code>를 사용하여 변경된 항목만 다시 렌더링 하여 템플릿 성능을 최적화 하며, 실행시 DOM에 반영되지 않습니다.<br/>
+또한 <code>key</code> 값을 넣지 않으면 오류가 발생합니다.</p>
+
+<h4 id="for-each">for:each</h4>
+
+<p>for:each={array}로 반복 시킬 데이터를 가져오고,  for:item=&ldquo;&hellip;&ldquo;를 통해 각 아이템에 접근합니다.<br/>
+for:index=&ldquo;&hellip;&ldquo;로 인덱스 값을 받아올 수도 있습니다. 하지만 index값을 key값으로 설정할 수 없습니다.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- contacts.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">ul</span>&gt;
+            &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">for:each</span><span style="color:#f92672">=</span><span style="color:#e6db74">{contacts}</span> <span style="color:#a6e22e">for:item</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;contact&#34;</span> <span style="color:#a6e22e">for:index</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index&#34;</span>&gt;
+                &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">{contact.Id}</span>&gt;
+                    {index} : {contact.Name} , {contact.Title}
+                &lt;/<span style="color:#f92672">li</span>&gt;
+            &lt;/<span style="color:#f92672">template</span>&gt;
+        &lt;/<span style="color:#f92672">ul</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">contacts</span>.<span style="color:#a6e22e">js</span> <span style="color:#f92672">--&gt;</span>
+    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Contacts</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">contacts</span> <span style="color:#f92672">=</span> [
+            {
+                <span style="color:#a6e22e">Id</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+                <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;BongHoon&#34;</span>,
+                <span style="color:#a6e22e">Title</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Publisher&#34;</span>
+            },
+            {
+                <span style="color:#a6e22e">Id</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+                <span style="color:#a6e22e">Name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Test&#34;</span>,
+                <span style="color:#a6e22e">Title</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;LWC&#34;</span>
+            }
+        ];
+    }
+</code></pre></div>
+
+<p><br/></p>
+
+<h4 id="iterator">iterator</h4>
+
+<p>iterator:iteratorName={array} 로 반복 시킬 데이터를 가져오고,<br/>
+iteratorName에 아래의 속성을 붙여 각 아이템을 가져옵니다.</p>
+
+<ul>
+<li>value : 목록에 있는 항목의 값. <code>iteratorName.value.propertyName</code></li>
+<li>index : 목록의 인덱스 값</li>
+<li>first : 이 항목이 목록의 첫 번째 항목인지를 나타내는 Boolean 값</li>
+<li>last : 이 항목이 목록의 마지막 항목인지를 나타내는 Boolean 값</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">ul</span>&gt;
+            &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">iterator:itr</span><span style="color:#f92672">=</span><span style="color:#e6db74">{contacts}</span>&gt;
+                &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">{itr.value.Id}</span>&gt;
+                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">if:true</span><span style="color:#f92672">=</span><span style="color:#e6db74">{itr.first}</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;list-first&#34;</span>&gt;First&lt;/<span style="color:#f92672">div</span>&gt;
+                    {itr.value.Name} , {itr.value.Title}
+                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">if:true</span><span style="color:#f92672">=</span><span style="color:#e6db74">{itr.last}</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;list-last&#34;</span>&gt;Last&lt;/<span style="color:#f92672">div</span>&gt;
+                &lt;/<span style="color:#f92672">li</span>&gt;
+            &lt;/<span style="color:#f92672">template</span>&gt;
+        &lt;/<span style="color:#f92672">ul</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<p><br/></p>
+
+<h3 id="6-여러-템플릿-렌더링">6. 여러 템플릿 렌더링</h3>
+
+<hr />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">// multipleRender.js
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span>  } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+    <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">templateOne</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./templateOne.html&#39;</span>;
+    <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">templateTwo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./templateTwo.html&#39;</span>;
+
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultipleRender</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">templateOne</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+
+        <span style="color:#a6e22e">render</span>() {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templateOne</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">templateOne</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">templateTwo</span>;
+        }
+
+        <span style="color:#a6e22e">switchTemplate</span>() {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templateOne</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templateOne</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>;
+        }
+    }
+</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- templateOne.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">lightning-card</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Template One&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span>&gt;
+                Template One
+            &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin-vertical-small&#34;</span>&gt;
+                &lt;<span style="color:#f92672">lightning-button</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Switch Templates&#34;</span> 
+                    <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">{switchTemplate}</span>&gt;
+                &lt;/<span style="color:#f92672">lightning-button</span>&gt; 
+            &lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;/<span style="color:#f92672">lightning-card</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- templateOne.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">lightning-card</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Template Two&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span>&gt;
+                Template Two
+            &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin-vertical-small&#34;</span>&gt;
+                &lt;<span style="color:#f92672">lightning-button</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Switch Templates&#34;</span> 
+                    <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">{switchTemplate}</span>&gt;
+                &lt;/<span style="color:#f92672">lightning-button</span>&gt; 
+            &lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;/<span style="color:#f92672">lightning-card</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<blockquote>
+<p>참고 : 컴포넌트에서 <code>render()</code>를 이용하면 template 안의 내용을 전부 render()의 return 값으로 바꿔버립니다. render()를 이용하는 것 보다 <code>if:true|false</code>로 렌더링 하는 것이 더 일반적입니다.</p>
+</blockquote>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/lcw">LCW</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr style="margin-bottom: 0;margin-top: 60px;">
+    
+    <footer class="DK-blog__footer">
+        <div class="container-fluid DK-link__wrap">
+          <div class="container">
+            <nav class="DK-link__nav row">
+              <a href="http://www.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 홈페이지 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="http://biz.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 비즈니스 블로그 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="https://support.dkbmc.com" target="_blank" class="col-md-4 col-sm-12">DKBMC 고객센터 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+            </nav>
+          </div>
+        </div>
+        <div class="container DK-SNS__wrap">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    <script>
+        
+        var headTitle = (window.location.pathname).split("/")[1];
+        var $jobCon = $(".job-main-container");
+        if(headTitle === "job") {
+          $(".intro-header.post-header.list-header").remove();
+          $(".list-container").remove();
+          $jobCon.show();
+        }
+        else {
+          $jobCon.remove();
+        }
+    </script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    <script>
+      $(window).on("load",function(){
+         
+        $("#loading").delay(500).fadeOut(500);
+      });
+
+       
+      $(".category-list li a").each(function(){
+        var thisTxt = $(this).text();
+        var hyphenLength = thisTxt.split("-").length - 1;
+        if(hyphenLength >= 2) {
+          var replaceTxt = "-";
+          for(var i=1; i <= hyphenLength; i++){
+            replaceTxt += thisTxt.split("-")[i] + " ";
+          }
+          $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
+        }
+      });
+    </script>
+
+    
+
+    <script type="text/javascript">
+      piAId = '757853';
+      piCId = '4029';
+      piHostname = 'pi.pardot.com';
+      
+      (function() {
+        function async_load(){
+          var s = document.createElement('script'); s.type = 'text/javascript';
+          s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+          var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+      })();
+      </script>
+</body>
+
+</html>
+

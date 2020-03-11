@@ -7,10 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©DKBMC. All rights reserved. Powered by GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 07 Jun 2019 14:53:34 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2019 10:13:40 +0900</lastBuildDate>
     
 	<atom:link href="https://DKBMC-Official.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lightning Web Component(3)</title>
+      <link>https://DKBMC-Official.github.io/post/lwc/lwc_basic3/</link>
+      <pubDate>Tue, 17 Dec 2019 10:13:40 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/lwc/lwc_basic3/</guid>
+      <description>1. JavaScript Property 이름 JavaScript에서의 property의 이름은 Camel Case, HTML에서의 property 이름은 Kebab Case로 써야합니다. 예를들어, JavaScript에서 property 이름이 itemName 이라면, HTML에서는 item-name으로 매핑됩니다.
+아래의 문자로 속성 이름을 시작하면 안됩니다.
+ on (예: onClick) aira (예: ariaDescribedby) data (예: dataProperty)  아래의 예약어를 속성 이름으로 사용하면 안됩니다.
+ slot part is  
+2. JavaScript에서 HTML 전역 속성에 접근 일부 HTML 전역 속성은 LWC Camel Case 및 Kebab Case 규칙을 따르지 않습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lightning Web Component(2)</title>
+      <link>https://DKBMC-Official.github.io/post/lwc/lwc_basic2/</link>
+      <pubDate>Tue, 10 Dec 2019 14:18:57 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/lwc/lwc_basic2/</guid>
+      <description>1. 템플릿 데이터 바인딩  HTML Template에서는 {property}를 중괄호 안에 넣어야합니다. Aura 컴포넌트와 달리 LWC에서는 HTML Template 내의 property에 수식 적용이 불가능 합니다. 속성 값을 계산을 해서 가져오려면 JavaScript의 getter, setter를 이용하시면 됩니다. get property() { return ... } 오브젝트로부터 property에 접근할 때는 기존과 같이 dot notation을 이용하시면 됩니다. person.firstName , person[2].name[&#39;BongHoon&#39;]  &amp;lt;!-- test.html --&amp;gt;&amp;lt;template&amp;gt;제 이름은 {myName} 입니다.&amp;lt;/template&amp;gt; /* test.js */import { LightningElement } from &amp;#39;lwc&amp;#39;;export default class Test extends LightningElement {myName = &amp;#34;고봉훈&amp;#34;;}   참고 : 컴포넌트가 리렌더링되면 템플릿에 사용된 모든 표현식이 재평가됩니다.</description>
+    </item>
+    
+    <item>
+      <title>Lightning Web Component(1)</title>
+      <link>https://DKBMC-Official.github.io/post/lwc/lwc_basic1/</link>
+      <pubDate>Wed, 27 Nov 2019 16:52:12 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/lwc/lwc_basic1/</guid>
+      <description>1. Lightning Web Component 란? Lightning Web Component( LCW )는 HTML 및 최신 JavaScript를 사용하여 작성된 사용자 정의 HTML 요소 입니다. LCW는 Aura Component 보다 성능이 좋고 개발이 더 쉽지만, LCW가 아직 Aura의 모든 기능을 지원하지는 않기 때문에, Aura를 사용해야 할 수도 있습니다.
+하지만, 지원되지 않는 기능이 필요하지 않다면 LCW를 선택해서 사용하는걸 권장하고 있습니다.
+LCW와 Aura의 가장 큰 차이점 중 하나는 Aura는 lightning:input 처럼 NameSpace와 componentName을 콜론으로 구분하지만, LCW는 lightning-input처럼 하이픈으로 구분 짓는다는 점입니다.</description>
+    </item>
     
     <item>
       <title>Quick Action Modal</title>

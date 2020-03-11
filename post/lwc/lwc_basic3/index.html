@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="lcw 기초 정리">
+    <meta name="author" content="[고봉훈]">
+    <meta name="keywords" content="">
+
+    <meta name="google-site-verification" content="lhulumjBhO4KJFVB0xxfgsKfsLHOeQi5KLuqHGvJyfs" />
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>Lightning Web Component(3)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:2.25rem;">lcw 기초 정리</h2>
+               <hr class="small" style="border-color: #176db5;"/>
+               <span class="post-preview_date"><b>Tue, Dec 17, 2019</b></span>
+               <span style="color:#fff;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>고봉훈</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="1-javascript-property-이름">1. JavaScript Property 이름</h3>
+
+<hr />
+
+<p>JavaScript에서의 property의 이름은 <code>Camel Case</code>, HTML에서의 property 이름은 <code>Kebab Case</code>로 써야합니다.<br/>
+예를들어, JavaScript에서 property 이름이 <strong>itemName</strong> 이라면, HTML에서는 <strong>item-name</strong>으로 매핑됩니다.</p>
+
+<p>아래의 문자로 속성 이름을 시작하면 안됩니다.</p>
+
+<ul>
+<li>on (예: onClick)</li>
+<li>aira (예: ariaDescribedby)</li>
+<li>data (예: dataProperty)</li>
+</ul>
+
+<p>아래의 예약어를 속성 이름으로 사용하면 안됩니다.</p>
+
+<ul>
+<li>slot</li>
+<li>part</li>
+<li>is</li>
+</ul>
+
+<p><br/></p>
+
+<h3 id="2-javascript에서-html-전역-속성에-접근">2. JavaScript에서 HTML 전역 속성에 접근</h3>
+
+<hr />
+
+<p>일부 HTML 전역 속성은 LWC Camel Case 및 Kebab Case 규칙을 따르지 않습니다.<br/>
+ 이러한 HTML 전역 속성 중 하나에 대한 getter, setter를 작성하는 경우 아래 목록을 참고하세요.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"><center>HTML 전역 속성</center></th>
+<th align="left"><center>JAVASCRIPT의 속성</center></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">accesskey</td>
+<td align="left">accessKey</td>
+</tr>
+
+<tr>
+<td align="left">bgcolor</td>
+<td align="left">bgColor</td>
+</tr>
+
+<tr>
+<td align="left">colspan</td>
+<td align="left">colSpan</td>
+</tr>
+
+<tr>
+<td align="left">contenteditable</td>
+<td align="left">contentEditable</td>
+</tr>
+
+<tr>
+<td align="left">crossorigin</td>
+<td align="left">crossOrigin</td>
+</tr>
+
+<tr>
+<td align="left">datetime</td>
+<td align="left">dateTime</td>
+</tr>
+
+<tr>
+<td align="left">for</td>
+<td align="left">htmlFor</td>
+</tr>
+
+<tr>
+<td align="left">formaction</td>
+<td align="left">formAction</td>
+</tr>
+
+<tr>
+<td align="left">ismap</td>
+<td align="left">isMap</td>
+</tr>
+
+<tr>
+<td align="left">maxlength</td>
+<td align="left">maxLength</td>
+</tr>
+
+<tr>
+<td align="left">minlength</td>
+<td align="left">minLength</td>
+</tr>
+
+<tr>
+<td align="left">novalidate</td>
+<td align="left">noValidate</td>
+</tr>
+
+<tr>
+<td align="left">readonly</td>
+<td align="left">readOnly</td>
+</tr>
+
+<tr>
+<td align="left">rowspan</td>
+<td align="left">rowSpan</td>
+</tr>
+
+<tr>
+<td align="left">tabindex</td>
+<td align="left">tabIndex</td>
+</tr>
+
+<tr>
+<td align="left">usemap</td>
+<td align="left">useMap</td>
+</tr>
+</tbody>
+</table>
+
+<p><br/></p>
+
+<h3 id="3-javascript로-aria-속성에-접근">3. JavaScript로 ARIA 속성에 접근</h3>
+
+<hr />
+
+<p>ARIA는 웹 보조기기를 지원하는 속성입니다. JavaScript로 이 속성에 접근하려면 Camel Case를 사용합니다.<br/>
+예를들어, <strong>aria-checked</strong>에 접근하려면 <strong>ariaChecked</strong>를 사용</p>
+
+<p><br/></p>
+
+<h3 id="4-반응성-속성">4. 반응성 속성</h3>
+
+<hr />
+
+<h4 id="1-public-property">1. Public Property</h4>
+
+<p>Public Property를 노출시키려면 <code>@api</code>를 사용해야합니다.<br/>
+마크업에서 부모 컴포넌트는 자식 컴포넌트의 Public Property에 접근할 수 있습니다.<br/>
+Public Property는 반응 속성입니다. 반응 속성은 값이 변경되면 컴포넌트가 리렌더링 되며, 템플릿에 사용 된 모든 표현식이 재평가됩니다.</p>
+
+<p><code>@api</code>를 사용하려면 아래처럼 lwc에서 import 시켜야합니다.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">api</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+</code></pre></div></p>
+
+<p>예제 )
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">// todoItem.js
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">api</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TodoItem</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">api</span> <span style="color:#a6e22e">itemName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;New Item&#39;</span>;
+    }
+</code></pre></div></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- todoItem.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;view&#34;</span>&gt;
+            &lt;<span style="color:#f92672">label</span>&gt;{itemName}&lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- todoApp.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;listing&#34;</span>&gt;
+            &lt;<span style="color:#f92672">c-todo-item</span> <span style="color:#a6e22e">item-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Milk&#34;</span>&gt;&lt;/<span style="color:#f92672">c-todo-item</span>&gt;
+            &lt;<span style="color:#f92672">c-todo-item</span> <span style="color:#a6e22e">item-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Bread&#34;</span>&gt;&lt;/<span style="color:#f92672">c-todo-item</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">// todoApp.js
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myTodo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;c-todo-item&#39;</span>);
+    <span style="color:#a6e22e">myTodo</span>.<span style="color:#a6e22e">itemName</span> <span style="color:#75715e">// New Item
+</span></code></pre></div>
+
+<p><br/></p>
+
+<h4 id="2-tracked-private-reactive-property">2. Tracked(Private Reactive) Property</h4>
+
+<p>Tracked Property는 Private Reactive Property라고도 부릅니다.<br/>
+Private 속성의 값을 추척하고 변경 될 때 컴포넌트를 리렌더링하려면 <code>@track</code>속성을 사용하세요.</p>
+
+<p>@api와 달리 @track속성은 비공개 속성입니다.</p>
+
+<blockquote>
+<p>@track 속성은 과도하게 사용하지 말고, 속성 값이 변경 될 때 컴포넌트를 리렌더링 시켜야하는 경우에만 사용하는걸 권장합니다.</p>
+</blockquote>
+
+<p><code>@track</code>를 사용하려면 아래처럼 lwc에서 import 시켜야합니다.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+</code></pre></div></p>
+
+<p>예제 )
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- simpleTrack.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">p</span>&gt;{itemName}&lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;<span style="color:#f92672">lightning-button</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Change Item&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">{handleClick}</span>&gt;&lt;/<span style="color:#f92672">lightning-button</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript">    <span style="color:#75715e">// simpleTrack.js
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span>, <span style="color:#a6e22e">track</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">track</span> <span style="color:#a6e22e">itemName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;milk&#39;</span>;
+
+        <span style="color:#a6e22e">handleClick</span>(){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">itemName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bread&#39;</span>;
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;itemName is &#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">itemName</span>);
+        }
+    }
+</code></pre></div>
+
+<p>위의 예제에서 컴포넌트가 처음 렌더링 될 때는 itemName이 <strong>milk</strong>로 출력되지만, <strong>Change Item</strong>버튼을 클릭하면, itemName이 <strong>bread</strong>로 바뀌고 컴포넌트가 리렌더링되어 <strong>bread</strong>가 출력됩니다.<br/>
+만약 itemName 앞에 <code>@track</code>이 없다면, console에서는 <strong>bread</strong>로 찍히지만, 컴포넌트가 리렌더링 되지 않아 템플릿에서는 여전히 <strong>milk</strong>로 출력됩니다.</p>
+
+<p><br/></p>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/lwc">LWC</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr style="margin-bottom: 0;margin-top: 60px;">
+    
+    <footer class="DK-blog__footer">
+        <div class="container-fluid DK-link__wrap">
+          <div class="container">
+            <nav class="DK-link__nav row">
+              <a href="http://www.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 홈페이지 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="http://biz.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 비즈니스 블로그 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="https://support.dkbmc.com" target="_blank" class="col-md-4 col-sm-12">DKBMC 고객센터 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+            </nav>
+          </div>
+        </div>
+        <div class="container DK-SNS__wrap">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    <script>
+        
+        var headTitle = (window.location.pathname).split("/")[1];
+        var $jobCon = $(".job-main-container");
+        if(headTitle === "job") {
+          $(".intro-header.post-header.list-header").remove();
+          $(".list-container").remove();
+          $jobCon.show();
+        }
+        else {
+          $jobCon.remove();
+        }
+    </script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    <script>
+      $(window).on("load",function(){
+         
+        $("#loading").delay(500).fadeOut(500);
+      });
+
+       
+      $(".category-list li a").each(function(){
+        var thisTxt = $(this).text();
+        var hyphenLength = thisTxt.split("-").length - 1;
+        if(hyphenLength >= 2) {
+          var replaceTxt = "-";
+          for(var i=1; i <= hyphenLength; i++){
+            replaceTxt += thisTxt.split("-")[i] + " ";
+          }
+          $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
+        }
+      });
+    </script>
+
+    
+
+    <script type="text/javascript">
+      piAId = '757853';
+      piCId = '4029';
+      piHostname = 'pi.pardot.com';
+      
+      (function() {
+        function async_load(){
+          var s = document.createElement('script'); s.type = 'text/javascript';
+          s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+          var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+      })();
+      </script>
+</body>
+
+</html>
+

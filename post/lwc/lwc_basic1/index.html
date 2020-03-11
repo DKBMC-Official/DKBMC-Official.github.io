@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="lcw 기초 정리">
+    <meta name="author" content="[고봉훈]">
+    <meta name="keywords" content="">
+
+    <meta name="google-site-verification" content="lhulumjBhO4KJFVB0xxfgsKfsLHOeQi5KLuqHGvJyfs" />
+
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="DKBMC 기술 블로그"/>
+    <meta property="og:description" content="DKBMC 기술 블로그입니다."/>
+    <meta property="og:url" content="http://blog.dkbmc.com"/>
+    <meta property="og:image" content="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png"/>
+    <meta property="og:image:width" content="100"/>
+    <meta property="og:image:height" content="100"/>
+
+
+    
+    <title>DKBMC 기술블로그</title>
+
+    <link href="https://DKBMC-Official.github.io//css/font.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://DKBMC-Official.github.io//img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://DKBMC-Official.github.io//img/apple-icon-57x57.png">
+
+    
+
+    
+    <link href="https://DKBMC-Official.github.io//css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://DKBMC-Official.github.io//css/clean-blog.min.css" rel="stylesheet"><link href="https://DKBMC-Official.github.io//css/custom.css" rel="stylesheet"/>
+
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://DKBMC-Official.github.io/"><img src="https://DKBMC-Official.github.io//img/DK-tech-color-kr.png" alt="Home" style="width: 150px;cursor:pointer;margin-left: 10px"/></a>
+            </div>
+
+                       
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="/">home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/post/">Posts</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+        </div>
+        
+    </nav>
+
+
+    
+    
+    <header class="post-header intro-header " style="background-image: url('https://DKBMC-Official.github.io//img/post-detail-back.jpg');">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-10 col-md-10">
+             <div class="post-heading">
+               <h1>Lightning Web Component(1)</h1>
+               <h2 class="subheading" style="font-weight:200;font-size:2.25rem;">lcw 기초 정리</h2>
+               <hr class="small" style="border-color: #176db5;"/>
+               <span class="post-preview_date"><b>Wed, Nov 27, 2019</b></span>
+               <span style="color:#fff;font-size: 1.65rem;">written by</span>
+                <a href="#" class="author">
+                <span>고봉훈</span>
+                </a>
+               
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+    
+    <article class="content-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 p-horizontal">
+                  
+
+<!-- 게시글 내용 -->
+
+<h3 id="1-lightning-web-component-란">1. Lightning Web Component 란?</h3>
+
+<hr />
+
+<p><code>Lightning Web Component( LCW )</code>는 HTML 및 최신 JavaScript를 사용하여 작성된 사용자 정의 HTML 요소 입니다.<br/>
+LCW는 Aura Component 보다 성능이 좋고 개발이 더 쉽지만, LCW가 아직 Aura의 모든 기능을 지원하지는 않기 때문에,
+Aura를 사용해야 할 수도 있습니다.</p>
+
+<p>하지만, <strong>지원되지 않는 기능이 필요하지 않다면 LCW를 선택해서 사용하는걸 권장하고 있습니다.</strong></p>
+
+<p>LCW와 Aura의 가장 큰 차이점 중 하나는 Aura는 <code>lightning:input</code> 처럼 NameSpace와 componentName을 콜론으로 구분하지만,<br/>
+LCW는 <code>lightning-input</code>처럼 하이픈으로 구분 짓는다는 점입니다.</p>
+
+<p>이 외에 LCW의 기본 소개를 보고 싶으시다면 <br/>
+<a href="https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.get_started_introduction">https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.get_started_introduction</a> 를 참고 바랍니다.</p>
+
+<p><br/></p>
+
+<blockquote>
+<p><a href="https://developer.salesforce.com/docs/component-library/tools/playground">Lightning Web Component PlayGround</a> 에서 LCW 코드를 작성하고 실행해 볼 수 있습니다. ( <a href="https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.install_playground">PlayGround Document</a> )</p>
+</blockquote>
+
+<p><br/></p>
+
+<h3 id="2-component-폴더-만들기">2. Component 폴더 만들기</h3>
+
+<hr />
+
+<p>컴포넌트는 기본적으로 폴더로 구분됩니다.<br/>
+폴더와 파일 이름은 대문자와 밑줄을 포함하여 동일한 이름이어야 합니다.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batchFile" data-lang="batchFile">    myComponent
+        ├── myComponent.html
+        ├── myComponent.js
+        ├── myComponent.js-meta.xml
+        ├── myComponent.css
+        └── myComponent.svg</code></pre></div>
+
+<p>폴더의 명명 규칙은 다음과 같습니다.</p>
+
+<ul>
+<li>소문자로 시작</li>
+<li>영문,숫자 또는 밑줄만 포함되어야 함</li>
+<li>공백을 포함 할 수 없음</li>
+<li>밑줄로 끝날 수 없음</li>
+<li>두 개의 연속 밑줄을 포함 할 수 없음</li>
+<li>하이픈을 포함 할 수 없음</li>
+</ul>
+
+<p><br/></p>
+
+<h3 id="3-component-html-파일">3. Component HTML 파일</h3>
+
+<hr />
+
+<p>컴포넌트의 html 파일은 &lt;template&gt; 태그 안에 HTML 요소를 구성하는 방식입니다.<br/>
+또한, 만약 app.html에 myComponent를 렌더링시키고 싶다면, <code>&lt;c-my-component&gt;</code>의 형식으로 넣어줘야 합니다.<br/></p>
+
+<p><code>&lt;namespace-component-name&gt;</code>( c는 기본 네임스페이스 입니다 )</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- app.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">c-my-component</span>&gt;&lt;/<span style="color:#f92672">c-my-component</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<p><br/></p>
+
+<h3 id="4-component-javascript-파일">4. Component JavaScript 파일</h3>
+
+<hr />
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript">    <span style="color:#75715e">// myComponent.js
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">LightningElement</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;lwc&#39;</span>;
+    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyComponent</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">LightningElement</span> {
+        ....
+    }
+</code></pre></div>
+
+<p>위의 코드 처럼, 클래스 이름을 myComponent가 아닌 첫 글자를 대문자로 한 MyComponent를 써주셔야 합니다.</p>
+
+<p><br/></p>
+
+<h3 id="5-component-config-파일">5. Component Config 파일</h3>
+
+<hr />
+
+<p>모든 컴포넌트에는 Config 파일이 있어야 합니다. Config 파일은 Lightning App Builder 및 Community Builder의 디자인 구성을 포함해서, 컴포넌트의 메타 데이터 값을 정의합니다.</p>
+
+<p>명명 규칙은 <code>componentName.js-meta.xml</code> 입니다.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+    &lt;<span style="color:#f92672">LightningComponentBundle</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://soap.sforce.com/2006/04/metadata&#34;</span>&gt;
+        &lt;<span style="color:#f92672">apiVersion</span>&gt;45.0&lt;/<span style="color:#f92672">apiVersion</span>&gt;
+        &lt;<span style="color:#f92672">isExposed</span>&gt;false&lt;/<span style="color:#f92672">isExposed</span>&gt;
+    &lt;/<span style="color:#f92672">LightningComponentBundle</span>&gt;</code></pre></div></p>
+
+<blockquote>
+<p>Config 파일을 컴포넌트에 포함하지 않으면, 컴포넌트를 Org에 Deploy할 때 <code>Cannot find Lightning Component Bundle ...</code> 같은 오류가 발생합니다.</p>
+</blockquote>
+
+<p><br/></p>
+
+<h3 id="6-component-css-파일">6. Component Css 파일</h3>
+
+<hr />
+
+<ol>
+<li>Css 파일의 이름과 컴포넌트의 이름이 같아야 합니다. 그러면 스타일 시트가 자동으로 해당 컴포넌트에 적용됩니다.</li>
+<li>각 컴포넌트는 하나의 스타일 시트만 가질 수 있습니다.</li>
+<li>컴포넌트의 스타일 시트에 정의 된 스타일의 범위는 해당 컴포넌트로 제한 됩니다.</li>
+</ol>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- parent.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;Parent Text&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">c-child</span>&gt;&lt;/<span style="color:#f92672">c-child</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">    <span style="color:#75715e">/* parent.css */</span>
+    <span style="color:#f92672">h1</span> {
+        <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+    }</code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    <span style="color:#75715e">&lt;!-- child.html --&gt;</span>
+    &lt;<span style="color:#f92672">template</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;Child Text&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+
+<p>위와 같이 구성을 할 경우, parent.css에 정의된 h1 태그의 스타일은 parent 컴포넌트에 child 컴포넌트가 포함되어 있더라도, child 컴포넌트에 영향을 끼치지 않습니다.</p>
+
+                  
+   
+
+
+                </div>
+            </div>
+          <span class="meta">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" style="padding-left:15px;">
+          
+
+
+<div class="tag_wrap">
+<a href="/categories/lcw">LCW</a>
+
+</div>
+
+
+        </div>
+          </span>
+            
+        </div>
+
+        
+    </article>
+    <hr>
+    <script src="https://utteranc.es/client.js"
+    repo="DKBMC-Official/blog-comment"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+    <hr style="margin-bottom: 0;margin-top: 60px;">
+    
+    <footer class="DK-blog__footer">
+        <div class="container-fluid DK-link__wrap">
+          <div class="container">
+            <nav class="DK-link__nav row">
+              <a href="http://www.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 홈페이지 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="http://biz.dkbmc.com/" target="_blank" class="col-md-4 col-sm-12">DKBMC 비즈니스 블로그 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+              <a href="https://support.dkbmc.com" target="_blank" class="col-md-4 col-sm-12">DKBMC 고객센터 <i class="DK-link__arrow" style="background-image:url('https://DKBMC-Official.github.io//img/DK_Support_Basic_Arrow.png')"></i></a>
+            </nav>
+          </div>
+        </div>
+        <div class="container DK-SNS__wrap">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                      
+                    
+                    
+                    
+                    <li>
+                      <a href="https://github.com/DKBMC-Official" target="_blank" title="https://github.com/DKBMC-Official">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.facebook.com/DKBMCLOUD/" target="_blank" title="https://www.facebook.com/DKBMCLOUD/">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p class="copyright text-muted">©DKBMC. All rights reserved. Powered by GitHub Pages.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/jquery.min.js"></script>
+
+    <script>
+        
+        var headTitle = (window.location.pathname).split("/")[1];
+        var $jobCon = $(".job-main-container");
+        if(headTitle === "job") {
+          $(".intro-header.post-header.list-header").remove();
+          $(".list-container").remove();
+          $jobCon.show();
+        }
+        else {
+          $jobCon.remove();
+        }
+    </script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/bootstrap.min.js"></script>
+
+    
+    <script src="https://DKBMC-Official.github.io//js/clean-blog.js"></script>
+
+    <script>
+      $(window).on("load",function(){
+         
+        $("#loading").delay(500).fadeOut(500);
+      });
+
+       
+      $(".category-list li a").each(function(){
+        var thisTxt = $(this).text();
+        var hyphenLength = thisTxt.split("-").length - 1;
+        if(hyphenLength >= 2) {
+          var replaceTxt = "-";
+          for(var i=1; i <= hyphenLength; i++){
+            replaceTxt += thisTxt.split("-")[i] + " ";
+          }
+          $(this).text(replaceTxt);
+        }
+      });
+
+       
+      $(".post-avatar").each(function(){
+        var imgUrl = $(this).css("background-image").split("/");
+        if(imgUrl.pop().indexOf("%") === -1) {
+          $(this).addClass("img-avatar");
+        }
+      });
+    </script>
+
+    
+
+    <script type="text/javascript">
+      piAId = '757853';
+      piCId = '4029';
+      piHostname = 'pi.pardot.com';
+      
+      (function() {
+        function async_load(){
+          var s = document.createElement('script'); s.type = 'text/javascript';
+          s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+          var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+      })();
+      </script>
+</body>
+
+</html>
+
