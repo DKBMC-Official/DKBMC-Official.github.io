@@ -25,5 +25,16 @@
 2. JavaScript에서 HTML 전역 속성에 접근 일부 HTML 전역 속성은 LWC Camel Case 및 Kebab Case 규칙을 따르지 않습니다.</description>
     </item>
     
+    <item>
+      <title>Lightning Web Component(1)</title>
+      <link>https://DKBMC-Official.github.io/post/lwc/lwc_basic1/</link>
+      <pubDate>Wed, 27 Nov 2019 16:52:12 +0900</pubDate>
+      
+      <guid>https://DKBMC-Official.github.io/post/lwc/lwc_basic1/</guid>
+      <description>1. Lightning Web Component 란? Lightning Web Component( LCW )는 HTML 및 최신 JavaScript를 사용하여 작성된 사용자 정의 HTML 요소 입니다. LCW는 Aura Component 보다 성능이 좋고 개발이 더 쉽지만, LCW가 아직 Aura의 모든 기능을 지원하지는 않기 때문에, Aura를 사용해야 할 수도 있습니다.
+하지만, 지원되지 않는 기능이 필요하지 않다면 LCW를 선택해서 사용하는걸 권장하고 있습니다.
+LCW와 Aura의 가장 큰 차이점 중 하나는 Aura는 lightning:input 처럼 NameSpace와 componentName을 콜론으로 구분하지만, LCW는 lightning-input처럼 하이픈으로 구분 짓는다는 점입니다.</description>
+    </item>
+    
   </channel>
 </rss>
